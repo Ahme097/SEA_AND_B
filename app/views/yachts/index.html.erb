@@ -1,0 +1,15 @@
+  <h1>Available Yachts</h1>
+<%= link_to 'Add a Yacht to Rent', new_yacht_path, class: 'btn btn-primary' %>
+
+  <hr>
+  <ul>
+<% @yachts.each do |yacht| %>
+    <h2><%= yacht.name %></h2>
+    <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
+    <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
+    <p><strong>Price per Day:</strong> $<%= yacht.price_per_day %></p>
+    <p><strong>Description:</strong> <%= yacht.description %></p>
+    <p><a href="<%= yacht_path(yacht) %>">View Details</a></p>
+<% end %>
+
+  </ul>

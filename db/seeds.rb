@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Yacht.create(
+  name: "Luxury Yacht 1",
+  max_guest: 10,
+  cabin: 5,
+  yacht_image: "yacht1.jpg",
+  price_per_day: 1000,
+  description: "Experience luxury on the open waters with our spacious and elegant yacht."
+)
+
+Yacht.create(
+  name: "Family Yacht Getaway",
+  max_guest: 8,
+  cabin: 4,
+  yacht_image: "yacht2.jpg",
+  price_per_day: 800,
+  description: "Enjoy a perfect family vacation aboard our comfortable and well-equipped family yacht."
+)
+
+Yacht.create(
+  name: "Party Yacht Extravaganza",
+  max_guest: 15,
+  cabin: 6,
+  yacht_image: "yacht3.jpg",
+  price_per_day: 1500,
+  description: "Host the party of a lifetime on our spacious party yacht with all the amenities you need."
+)
