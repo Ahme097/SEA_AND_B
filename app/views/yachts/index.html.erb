@@ -5,6 +5,7 @@
   <ul>
 <% @yachts.each do |yacht| %>
     <h2><%= yacht.name %></h2>
+    <%= image_tag yacht.yacht_image %>
     <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
     <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
     <p><strong>Price per Day:</strong> $<%= yacht.price_per_day %></p>
