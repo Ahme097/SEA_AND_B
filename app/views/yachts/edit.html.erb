@@ -1,0 +1,17 @@
+<h1>Edit Yacht Listing</h1>
+
+<%= simple_form_for @yacht do |f| %>
+  <%= f.input :name %>
+  <%= f.file_field :yacht_image, class: 'form-control' %>
+  <%= f.input :max_guest %>
+  <%= f.input :cabin %>
+  <%= f.input :price_per_day %>
+  <%= f.input :description %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Back to Yachts', yachts_path %>
+<%= link_to 'Delete Yacht',
+            yacht_path(@yacht),
+            method: :delete,
+            data: { confirm: 'Are you sure you want to delete this yacht?' }%>
