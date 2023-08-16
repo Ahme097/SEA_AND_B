@@ -16,6 +16,16 @@ Yacht.create!(
   description: "Experience luxury on the open waters with our spacious and elegant yacht."
 )
 
+User.create!(
+  email: "owner@gmail.com", 
+  password: "owner111"
+)
+
+User.create!(
+  email: "buyer@gmail.com", 
+  password: "buyer111"
+)
+
 # Yacht.create!(
 #   name: "Family Yacht Getaway",
 #   max_guest: 8,
