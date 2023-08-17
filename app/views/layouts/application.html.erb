@@ -9,10 +9,123 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
+  <style>
+  body{
+    margin: 0;
+  }
+
+
+  header{
+  /* position: fixed; */
+  top: 0;
+  margin: 25px;
+  width: 90%;
+  background-color: white; /* Background color of the header */
+  color: white; /* Text color in the header */
+  padding: 10px 0; /* Padding at the top and bottom of the header */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px
+  }
+
+  footer {
+    background-color: lightblue; /* Background color of the footer */
+    color: white; /* Text color in the footer */
+    padding: 10px 0; /* Reduced padding at the top and bottom of the footer */
+    text-align: center; /* Center-align the content within the footer */
+    height: 60px; /* Reduced height */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-content {
+    max-width: 1200px; /* Set a maximum width for the content */
+    margin: 0 auto; /* Center the content horizontally */
+  }
+
+  .search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 40%;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+  </style>
+
+    <!-- In your layout file -->
+    <header>
+
+<div>
+    <%= link_to 'View All Available Yachts', yachts_path %>
+    <%= link_to 'View All Bookings', bookings_path %>
+</div>
+
+    <div>
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+</div>
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign In", new_user_session_path %>
+          <%= link_to 'Log in to account', new_user_session_path %>
+    <%= link_to 'Create new account', new_user_registration_path %>
+    <% end %>
+    </header>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <%= yield %>
+     <footer>
+    <div class="footer-content">
+      <p>&copy; 2023 Sea and B. All rights reserved.</p>
+    </div>
+  </footer>
+
+
   </body>
 </html>
