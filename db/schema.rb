@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_15_190117) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_183527) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "yacht_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_price"
+    t.boolean "is_confirmed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["yacht_id"], name: "index_bookings_on_yacht_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,5 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_190117) do
     t.index ["user_id"], name: "index_yachts_on_user_id"
   end
 
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "yachts"
   add_foreign_key "yachts", "users"
 end
