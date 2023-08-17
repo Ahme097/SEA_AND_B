@@ -6,12 +6,16 @@
 }
 </style>
 
+<div class="card">
 <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
 <%= image_tag @yacht.yacht_image, class:"yacht_photos" %>
 <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
 <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
 <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
 <p><strong>Description:</strong> <%= @yacht.description %></p>
+
+  </div>
+
 
 <!-- <p><a href="<%= edit_yacht_path(@yacht) %>">Edit Yacht</a></p> -->
 <!-- Comment: This link is for editing the yacht, not needed in this context -->
@@ -20,4 +24,4 @@
 <%# <%= button_to 'Delete Yacht', yacht_path(@yacht), method: :delete, data: { confirm: 'Are you sure you want to delete this yacht?' }%>
 <!-- Comment: This button is for deleting the yacht, not needed in this context -->
 
-<%= link_to 'Book this Yacht for 50% off!', new_booking_path %>
+<%= link_to 'Book this Yacht', new_booking_path %>
