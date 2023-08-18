@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag 'application' %>
   </head>
   <body>
   <style>
@@ -95,7 +96,7 @@
 
 <div>
     <%= link_to 'View All Available Yachts', yachts_path %>
-    <%= link_to 'View All Bookings', bookings_path %>
+    <%# <%= link_to 'View All Bookings', bookings_path %> 
 </div>
 
     <div>
@@ -109,7 +110,7 @@
 </div>
 </div>
     <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "Sign In", new_user_session_path %>
           <%= link_to 'Log in to account', new_user_session_path %>

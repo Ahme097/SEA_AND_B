@@ -11,13 +11,16 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @yacht = Yacht.find(params[:id])
   end
 
   def edit
   end
 
 def create
+  raise
   @booking = Booking.new(booking_params)
+
 
   if @booking.save
     redirect_to @booking, notice: 'Booking was successfully created.'
@@ -46,13 +49,8 @@ end
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :yacht_id, :start_date, :end_date, :total_price, :is_confirmed)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
-  def calculate_total_price
-    # Your Ruby logic to calculate the total price based on start_date, end_date, etc.
-    # For example:
-    # total_price = (end_date - start_date).to_i * yacht.price_per_day
-    # Return the calculated total_price
-  end
+  
 end

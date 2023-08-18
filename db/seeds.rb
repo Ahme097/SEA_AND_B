@@ -5,9 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Yacht.destroy_all
-Yacht.create!(
-  user_id: 1,
+Booking.all.destroy_all
+Yacht.all.destroy_all
+User.all.destroy_all
+
+puts "destroyed seeds"
+
+user_1 = User.create!(
+  email: "owner@gmail.com",
+  password: "owner111"
+)
+
+user_2 = User.create!(
+  email: "buyer@gmail.com",
+  password: "buyer111"
+)
+
+yacht_1 = Yacht.create!(
+  user_id: user_1.id,
   name: "Luxury Yacht 1",
   max_guest: 10,
   cabin: 5,
@@ -16,8 +31,8 @@ Yacht.create!(
   description: "Experience luxury on the open waters with our spacious and elegant yacht."
 )
 
-Yacht.create!(
-  user_id: 2,
+yacht_2 = Yacht.create!(
+  user_id: user_1.id,
   name: "Elegant Cruiser",
   max_guest: 8,
   cabin: 4,
@@ -27,8 +42,8 @@ Yacht.create!(
 )
 
 # Create Yacht records
-Yacht.create!(
-  user_id: 1,
+yacht_3 = Yacht.create!(
+  user_id: user_1.id,
   name: "Ocean Paradise",
   max_guest: 12,
   cabin: 6,
@@ -37,8 +52,8 @@ Yacht.create!(
   description: "Embark on a luxurious journey aboard our exquisite Ocean Paradise yacht."
 )
 
-Yacht.create!(
-  user_id: 3,
+yacht_4 = Yacht.create!(
+  user_id: user_1.id,
   name: "Sunset Serenity",
   max_guest: 6,
   cabin: 3,
@@ -47,8 +62,8 @@ Yacht.create!(
   description: "Experience tranquility and stunning sunsets on our Sunset Serenity yacht."
 )
 
-Yacht.create!(
-  user_id: 2,
+yacht_5 = Yacht.create!(
+  user_id: user_1.id,
   name: "Royal Voyager",
   max_guest: 15,
   cabin: 7,
@@ -57,15 +72,14 @@ Yacht.create!(
   description: "Sail like royalty aboard our spacious and opulent Royal Voyager yacht."
 )
 
-User.create!(
-  email: "owner@gmail.com",
-  password: "owner111"
+booking_1 = Booking.create!(
+  user_id: user_1.id, 
+  yacht_id: yacht_1.id,
+  start_date: Date.new,
+  end_date: Date.new + 7.days,
+  total_price: 2000
 )
 
-User.create!(
-  email: "buyer@gmail.com",
-  password: "buyer111"
-)
 
 # Yacht.create!(
 #   name: "Family Yacht Getaway",
