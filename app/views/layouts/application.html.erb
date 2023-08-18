@@ -11,41 +11,12 @@
   </head>
   <body>
 
-    <!-- In your layout file -->
-    <header>
-
-<div>
-    <%= link_to 'View All Available Yachts', yachts_path %>
-    <%= link_to 'View All Bookings', bookings_path %>
-</div>
-
-    <div>
-<div class="wrap">
-   <div class="search">
-      <input type="text" class="searchTerm" placeholder="What are you looking for?">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
-   </div>
-</div>
-</div>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign In", new_user_session_path %>
-          <%= link_to 'Log in to account', new_user_session_path %>
-    <%= link_to 'Create new account', new_user_registration_path %>
-    <% end %>
-    </header>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+  <%= render 'shared/navbar'%>
+    <p class="notice"> <%= notice %></p>
+    <p class="alert"> <%= alert %></p>
     <%= yield %>
-     <footer>
-    <div class="footer-content">
-      <p>&copy; 2023 Sea and B. All rights reserved.</p>
-    </div>
-  </footer>
+  <%= render 'shared/footer' %>
+
 
 
   </body>

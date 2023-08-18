@@ -1,5 +1,5 @@
 /* CSS for --> app/views/yachts/new.html.erb */
-.card{
+.yacht-index-card{
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -7,7 +7,7 @@
   justify-content: space-between; /* Items are spaced with equal gap */
   flex-direction: row;
   margin-top: 20px;
-  margin-right: 25px;
+  margin-right: 30px;
 }
 
 .right-section{
@@ -51,5 +51,5 @@ font-weight: 300;
 }
 
 .card-buttons{
-  /* Need to align at end of container */
+margin-left: 30px;
 }

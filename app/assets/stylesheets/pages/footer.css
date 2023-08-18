@@ -1,0 +1,14 @@
+footer {
+  background-color: lightblue;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
