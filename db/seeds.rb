@@ -10,6 +10,7 @@ Yacht.all.destroy_all
 User.all.destroy_all
 
 puts "destroyed seeds"
+puts "creating users"
 
 user_1 = User.create!(
   email: "owner@gmail.com",
@@ -20,6 +21,8 @@ user_2 = User.create!(
   email: "buyer@gmail.com",
   password: "buyer111"
 )
+
+puts "creating yachts"
 
 yacht_1 = Yacht.create!(
   user_id: user_1.id,
@@ -41,7 +44,7 @@ yacht_2 = Yacht.create!(
   description: "Set sail in style on our elegant cruiser with stunning ocean views."
 )
 
-# Create Yacht records
+
 yacht_3 = Yacht.create!(
   user_id: user_1.id,
   name: "Ocean Paradise",
@@ -72,12 +75,20 @@ yacht_5 = Yacht.create!(
   description: "Sail like royalty aboard our spacious and opulent Royal Voyager yacht."
 )
 
+puts "creating bookings"
+
 booking_1 = Booking.create!(
   user_id: user_1.id, 
   yacht_id: yacht_1.id,
   start_date: Date.new,
+  end_date: Date.new + 3.days,
+)
+
+booking_1 = Booking.create!(
+  user_id: user_2.id, 
+  yacht_id: yacht_4.id,
+  start_date: Date.new,
   end_date: Date.new + 7.days,
-  total_price: 2000
 )
 
 

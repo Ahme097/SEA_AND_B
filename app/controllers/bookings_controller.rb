@@ -11,14 +11,13 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @yacht = Yacht.find(params[:id])
+    @yacht = Yacht.find(params[:yacht_id])
   end
 
   def edit
   end
 
 def create
-  raise
   @booking = Booking.new(booking_params)
 
 

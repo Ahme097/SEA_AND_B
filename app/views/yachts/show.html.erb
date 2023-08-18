@@ -24,4 +24,4 @@
 <%# <%= button_to 'Delete Yacht', yacht_path(@yacht), method: :delete, data: { confirm: 'Are you sure you want to delete this yacht?' }%>
 <!-- Comment: This button is for deleting the yacht, not needed in this context -->
 
-<%# <%= link_to 'Book this Yacht', new_yacht_booking_url %> 
+<%= link_to 'Book this Yacht', new_yacht_booking_path(@yacht, @booking) %>

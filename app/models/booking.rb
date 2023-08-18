@@ -11,6 +11,8 @@ class Booking < ApplicationRecord
   end
 
   def calculate_total_price
-    self.total_price = (end_date - start_date).to_i * yacht.price_per_day
+    self.total_price = (self.end_date - self.start_date).to_i * yacht.price_per_day
   end
+
+
 end
