@@ -75,6 +75,17 @@ yacht_5 = Yacht.create!(
   description: "Sail like royalty aboard our spacious and opulent Royal Voyager yacht."
 )
 
+yacht_6 = Yacht.create!(
+  user_id: user_1.id,
+  name: "Royal Mermaid",
+  max_guest: 15,
+  cabin: 7,
+  yacht_image: "yacht6.jpg",
+  price_per_day: 500,
+  description: "Sail like royalty aboard our spacious and opulent Royal Mermaid."
+)
+
+
 puts "creating bookings"
 
 booking_1 = Booking.create!(

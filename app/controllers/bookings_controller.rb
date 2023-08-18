@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   def index
     @bookings = Booking.all
@@ -17,16 +17,15 @@ class BookingsController < ApplicationController
   def edit
   end
 
-def create
-  @booking = Booking.new(booking_params)
+  def create
+    @booking = Booking.new(booking_params)
 
-
-  if @booking.save
-    redirect_to @booking, notice: 'Booking was successfully created.'
-  else
-    render :new
+    if @booking.save
+      redirect_to @booking, notice: 'Booking was successfully created.'
+    else
+      render :new
+    end
   end
-end
 
   def update
     if @booking.update(booking_params)
@@ -50,6 +49,4 @@ end
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
-  
 end
