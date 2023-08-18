@@ -1,20 +1,10 @@
-<style>
-.yacht_photos{
-  width: 30%;
-  height: 30%;
-  border-radius: 10px;
-}
-</style>
+    <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
+    <%= image_tag @yacht.yacht_image, class:"yacht_photos_show_page" %>
+    <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
+    <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
+    <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
+    <p><strong>Description:</strong> <%= @yacht.description %></p>
 
-<div class="card">
-<p><strong>Yacht Model</strong> <%= @yacht.name %></p>
-<%= image_tag @yacht.yacht_image, class:"yacht_photos" %>
-<p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
-<p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
-<p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
-<p><strong>Description:</strong> <%= @yacht.description %></p>
-
-  </div>
 
 
 <!-- <p><a href="<%= edit_yacht_path(@yacht) %>">Edit Yacht</a></p> -->
