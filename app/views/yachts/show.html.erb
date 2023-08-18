@@ -1,17 +1,45 @@
-    <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
+    <div class="card">
+<div class="left-section-show-card">
     <%= image_tag @yacht.yacht_image, class:"yacht_photos_show_page" %>
+</div>
+<div>
+
+    <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
     <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
     <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
     <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
-    <p><strong>Description:</strong> <%= @yacht.description %></p>
+    <p><strong>Onboard Chef:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
+    <p><strong>Onboard Driver:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
+        <p><strong>Description:</strong> <%= @yacht.description %></p>
+        <p>We also have drones on board to film your best holiday experience for you to cherish your memories.
+        The current equipment on this Yachts is:</p>
+
+    <ul class="card-list">
+      <%# Generate drone-related data using the Faker gem %>
+      <li>Model:<%= Faker::Drone.name %></li>
+      <li>Weight:<%= Faker::Drone.weight %></li>
+      <li>Max Ascent Speed:<%= Faker::Drone.max_ascent_speed %></li>
+      <li>Max Descent Speed:<%= Faker::Drone.max_descent_speed %></li>
+      <li>Flight Time:<%= Faker::Drone.flight_time %></li>
+      <li>Max Altitude:<%= Faker::Drone.max_altitude %></li>
+      <li>Max Flight Distance:<%= Faker::Drone.max_flight_distance %></li>
+      <li>Max Speed:<%= Faker::Drone.max_speed %></li>
+      <li>Max Wind Resistance:<%= Faker::Drone.max_wind_resistance %></li>
+      <li>Max Angular Velocity:<%= Faker::Drone.max_angular_velocity %></li>
+      <li>Max Tilt Angle:<%= Faker::Drone.max_tilt_angle %></li>
+      <li>Operating Temperature:<%= Faker::Drone.operating_temperature %></li>
+    </ul>
+    <div class="card-buttons">
+          <button>
+        <%= link_to 'Back to Yachts', yachts_path %>
+
+    </button>
+        <button>
+            <%= link_to 'Book this Yacht', new_booking_path %>
+
+    </button>
+    </div>
 
 
-
-<!-- <p><a href="<%= edit_yacht_path(@yacht) %>">Edit Yacht</a></p> -->
-<!-- Comment: This link is for editing the yacht, not needed in this context -->
-
-<%= link_to 'Back to Yachts', yachts_path %>
-<%# <%= button_to 'Delete Yacht', yacht_path(@yacht), method: :delete, data: { confirm: 'Are you sure you want to delete this yacht?' }%>
-<!-- Comment: This button is for deleting the yacht, not needed in this context -->
-
-<%= link_to 'Book this Yacht', new_booking_path %>
+</div>
+    </div>
