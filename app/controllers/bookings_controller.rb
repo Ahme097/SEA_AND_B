@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     @booking.yacht = @yacht
     @booking.user = current_user
     if @booking.save!
-      redirect_to yachts_path, notice: 'Booking was successfully created.'
+      redirect_to yacht_bookings_path(@yacht.id),  notice: 'Booking was successfully created.'
     else
       render :new
     end
