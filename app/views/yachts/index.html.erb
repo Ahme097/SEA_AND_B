@@ -1,22 +1,30 @@
-  <h2>Available Yachts in <%= Time.now.strftime('%B, %Y') %></h2>
-  <hr>
-  <ul>
 
-<% @yachts.each do |yacht| %>
-<div class="yacht-index-card">
-<div class="left-section">
-    <%= image_tag yacht.yacht_image, class: 'yacht_photos' %>
-</div>
-<div class="right-section">
+<h2>Available Yachts in <%= Time.now.strftime('%B, %Y') %></h2>
+<hr>
+<ul>
 
-    <h2><%= yacht.name %></h2>
-    <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
-    <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
-    <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
-    <p><strong>Description:</strong> <%= yacht.description %></p>
-    <p><a href="<%= yacht_path(yacht) %>">View Details</a></p>
+  <% @yachts.each do |yacht| %>
+    <div class="card">
+      <div class="left-section">
+        <%= image_tag yacht.yacht_image, class: 'yacht_photos' %>
+      </div>
+      <div class="right-section">
+        <div class="info">
+        <h2><%= yacht.name %></h2>
+        <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
+        <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
+        <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
+        <p><strong>Description:</strong> <%= yacht.description %></p>
+        </div>
+        <div class="detail-btn">
+        <button type="button" class="btn btn-primary"> <a id="btn-text" href="<%= yacht_path(yacht) %>">View Details</a>
+        </div>
+      </div>
     </div>
-    </div>
+  <% end %>
 
-<% end %>
-  </ul>
+</ul>
+
+<!-- HTML !-->
+<button class="button-18" role="button">Button 18</button>
+

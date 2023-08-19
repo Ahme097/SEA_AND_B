@@ -51,6 +51,9 @@ gem "sassc-rails"
 # Devise GEM
 gem "devise"
 
+# bookingss
+gem 'unsplash'
+
 # Seed data
 gem 'faker'
 

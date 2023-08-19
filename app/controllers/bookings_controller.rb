@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   def index
     @bookings = Booking.all
@@ -11,20 +11,21 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @yacht = Yacht.find(params[:yacht_id])
   end
 
   def edit
   end
 
-def create
-  @booking = Booking.new(booking_params)
+  def create
+    @booking = Booking.new(booking_params)
 
-  if @booking.save
-    redirect_to @booking, notice: 'Booking was successfully created.'
-  else
-    render :new
+    if @booking.save
+      redirect_to @booking, notice: 'Booking was successfully created.'
+    else
+      render :new
+    end
   end
-end
 
   def update
     if @booking.update(booking_params)
@@ -46,13 +47,6 @@ end
   end
 
   def booking_params
-    params.require(:booking).permit(:user_id, :yacht_id, :start_date, :end_date, :total_price, :is_confirmed)
-  end
-
-  def calculate_total_price
-    # Your Ruby logic to calculate the total price based on start_date, end_date, etc.
-    # For example:
-    # total_price = (end_date - start_date).to_i * yacht.price_per_day
-    # Return the calculated total_price
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
