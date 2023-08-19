@@ -1,0 +1,35 @@
+footer {
+  background-color: rgb(255, 255, 255);
+  color: white;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-tagline{
+  padding-top: 10%;
+  color: black;
+}
+
+/* Apply the marquee effect to the wrapper */
+.marquee-wrapper {
+  bottom: 0;
+  width: 100%;
+  min-height: 100px;
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide overflowing text */
+  animation: marquee 10s linear infinite; /* Adjust the duration as needed */
+}
+
+/* Keyframes animation for the marquee effect */
+@keyframes marquee {
+  from {
+    transform: translateX(-150%); /* Start offscreen to the right */
+  }
+  to {
+    transform: translateX(120%); /* Move offscreen to the left */
+  }
+}
