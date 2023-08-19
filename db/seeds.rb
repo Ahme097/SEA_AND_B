@@ -95,7 +95,7 @@ booking_1 = Booking.create!(
   end_date: Date.new + 3.days,
 )
 
-booking_1 = Booking.create!(
+booking_2 = Booking.create!(
   user_id: user_2.id, 
   yacht_id: yacht_4.id,
   start_date: Date.new,
