@@ -1,0 +1,34 @@
+.navbar-custom-styling {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(158, 220, 255, 0.597);
+  padding: 10px 20px;
+}
+.custom-icon {
+  font-size: 24px;
+  margin-right: 5px;
+}
+.navbar-links {
+  list-style: none; /* Remove default bullet points */
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.navbar-links li {
+  display: inline; /* Display list items inline */
+}
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar-links li a:hover {
+  color: #FFD700;
+}
+.log-in-navbar-item{
+  display: flex;
+  flex-direction: row;
+}

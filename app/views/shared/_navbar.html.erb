@@ -1,0 +1,24 @@
+<div class="navbar-custom-styling">
+      <h4>
+        <a class="btn btn-info" href="<%= yachts_path %>">
+          <i class="fas fa-sailboat custom-icon"></i> Yachts
+        </a>
+      </h4>
+    <div class="log-in-navbar-item">
+        <% if user_signed_in? %>
+        <h4>
+          <%= link_to 'View Your Bookings', yachts_path, class: ' btn btn-info ' %>
+        </h4>
+        <h4>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: " btn btn-secondary " %>
+        </h4>
+      <% else %>
+        <h4>
+          <%= link_to 'Create new account', new_user_registration_path, class: "btn btn-primary "  %>
+        </h4>
+        <h4>
+          <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary "  %>
+        </h4>
+      <% end %>
+      </div>
+  </div>

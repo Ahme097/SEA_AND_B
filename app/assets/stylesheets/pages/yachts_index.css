@@ -1,0 +1,36 @@
+.yacht-card-rows {
+    margin: 3vw;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.yacht_photos {
+    height: 25vw;
+    width: 45vw;
+}
+
+.yacht_cards-in-index-page {
+    margin: 30px;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left-section {
+    width: 42vw;
+}
+
+.right-section {
+    background-color: rgba(217, 219, 222, 0.39);
+    border-radius: 4px;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+.btn-text {
+    color: white;
+    text-decoration: none;
+}

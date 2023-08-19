@@ -1,0 +1,16 @@
+.yacht-card-rows-show {
+    margin: 3vw;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.left-section-show {
+    width: 42vw;
+}
+
+.yacht_photos-show {
+    height: 25vw;
+    width: 45vw;
+}
