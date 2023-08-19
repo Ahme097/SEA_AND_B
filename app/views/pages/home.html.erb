@@ -1,13 +1,15 @@
 <div class="header">
 
 <!--Content before waves-->
-<div class="inner-header flex">
-    <h2>Your Seaside Escape</h2>
-    <i class="fa-solid fa-ship icon-ship"></i>
+<%= link_to yachts_path, class: "inner-header-link" do %>
+  <div class="inner-header flex">
+    <h1 class="animation-title">Your Seaside Escape</h1>
     <br>
-</div>
+  </div>
+<% end %>
 <!--Waves Container-->
 <div>
+
 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 <defs>

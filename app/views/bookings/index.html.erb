@@ -1,12 +1,18 @@
 <div class="header">
 
 <!--Content before waves-->
-<div class="inner-header flex">
-<h1>You currently have 0 bookings</h1>
-</div>
-
+<%= link_to yachts_path, class: "inner-header-link" do %>
+  <div class="inner-header flex">
+    <h1 class="animation-title">You currently have
+    <%= Booking.count %>
+    Bookings
+    </h1>
+    <br>
+  </div>
+<% end %>
 <!--Waves Container-->
 <div>
+
 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 <defs>

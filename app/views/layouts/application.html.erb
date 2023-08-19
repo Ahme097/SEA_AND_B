@@ -11,13 +11,12 @@
   </head>
   <body>
 
-  <%= render 'shared/navbar'%>
+<% unless request.path == '/' %>
+  <%= render 'shared/navbar' %>
+<% end %>
     <p class="notice"> <%= notice %></p>
     <p class="alert"> <%= alert %></p>
     <%= yield %>
   <%= render 'shared/footer' %>
-
-
-
   </body>
 </html>
