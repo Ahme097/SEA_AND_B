@@ -1,5 +1,6 @@
-<h1>New Booking page</h1>
+<h1 class="booking-title-new">New Booking page</h1>
 
+<div class="booking-form-new">
 <%= form_with(model: [@yacht, @booking]) do |f| %>
   <%= %>
   <%= f.date_field :start_date %>
@@ -8,5 +9,7 @@
 
   <%= f.button "Create Booking"  %>
 
-  <%= @yacht.price_per_day%>
+  <%# <%= @yacht.price_per_day%> 
 <% end %>
+
+</div>
