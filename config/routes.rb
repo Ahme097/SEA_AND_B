@@ -1,20 +1,8 @@
 Rails.application.routes.draw do
-  resources :bookings do
-    belongs_to :user
-    belongs_to :yacht
-  end
-  # users resource
-  resources :users do
-    devise_for :users
-  end
-  # yachts resource
+  devise_for :users
+  root to: "pages#home"
   resources :yachts do
-    has_many :bookings
-    has_many :reviews
+    resources :reviews
+    resources :bookings
   end
-  # reviews resource
-  resources :reviews do
-    belongs_to :yacht
-  end
-    end
 end

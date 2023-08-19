@@ -14,3 +14,17 @@
     height: 25vw;
     width: 45vw;
 }
+
+.image-rating-card {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.yacht-review-card-show {
+    margin: 50px;
+}
+
+.review-spacer-show {
+    width: 45vw;
+}

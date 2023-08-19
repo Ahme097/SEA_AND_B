@@ -5,6 +5,10 @@ class ReviewsController < ApplicationController
         @review = Review.new
     end
 
+    def show
+        @reviews = Reviews.all
+    end
+
     def create
         @yacht = Yacht.find(params[:yacht_id])
         @booking = Booking.find(params[:booking_id])

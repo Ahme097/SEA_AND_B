@@ -1,7 +1,19 @@
     <div class="yacht-card-rows-show">
+    <div class="image-rating-card">
 <div class="left-section-show">
     <%= image_tag @yacht.yacht_image, class:"yacht_photos-show" %>
 </div>
+<div class="review-spacer-show">
+    <% @yacht.reviews.each do |review| %>
+  <div class="yacht-review-card-show">
+    <p><strong>Rating:</strong> <%= review.rating %></p>
+    <p><strong>Comment:</strong> <%= review.comment %></p>
+    <p><strong> By <%= Faker::Name.first_name%></strong></p>
+    <%end%>
+</div>
+
+</div>
+
 <div>
     <br>
     <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
@@ -17,5 +29,5 @@
         <button>
     <%= link_to 'Book this Yacht', new_yacht_booking_path(@yacht, @booking) %>
     </button>
-    </div>
+ </div>
 
