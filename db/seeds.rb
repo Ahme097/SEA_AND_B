@@ -100,6 +100,36 @@ Review.create!(booking_id: booking_1.id,
   rating: 10,
   comment: "This yacht was so big, I thought I was on a cruise ship. But then I realized I was the only one on board, and I started to feel a little seasick."
 )
+
+Review.create!(booking_id: booking_2.id,
+  yacht_id: yacht_2.id,
+  rating: 10,
+  comment: "This yacht was so big, I thought I was on a cruise ship. But then I realized I was the only one on board, and I started to feel a little seasick."
+)
+
+Review.create!(booking_id: booking_1.id,
+  yacht_id: yacht_3.id,
+  rating: 10,
+  comment: "This yacht was so big, I thought I was on a cruise ship. But then I realized I was the only one on board, and I started to feel a little seasick."
+)
+
+Review.create!(booking_id: booking_1.id,
+  yacht_id: yacht_4.id,
+  rating: 10,
+  comment: "This yacht was so big, I thought I was on a cruise ship. But then I realized I was the only one on board, and I started to feel a little seasick."
+)
+
+Review.create!(booking_id: booking_1.id,
+  yacht_id: yacht_5.id,
+  rating: 10,
+  comment: "This yacht was so big, I thought I was on a cruise ship. But then I realized I was the only one on board, and I started to feel a little seasick."
+)
+
+Review.create!(booking_id: booking_1.id,
+  yacht_id: yacht_6.id,
+  rating: 10,
+  comment: "This yacht was so big, I thought I was on a cruise ship. But then I realized I was the only one on board, and I started to feel a little seasick."
+)
 # Yacht.create!(
 #   name: "Family Yacht Getaway",
 #   max_guest: 8,
