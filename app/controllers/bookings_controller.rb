@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show edit update destroy]
+  before_action :set_booking, only: %i[edit update destroy]
   # before_action :set_all_bookings, only: %i[all_bookings]
   before_action :set_yacht, only: [:new, :create]
   before_action :set_user, only: [:my_bookings]
