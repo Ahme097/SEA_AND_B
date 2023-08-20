@@ -1,17 +1,22 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
-  before_action :set_yacht, only: %i[new create]
+  before_action :set_yacht, only: [:new, :create, :yacht_bookings]
+  before_action :set_user, only: [:my_bookings]
+
+  def yacht_bookings
+    @bookings = @yacht.bookings
+  end
 
   def index
     @bookings = Booking.all
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    @booking = Booking.last
   end
 
   def new
-    @booking = Booking.new
+    @booking = current_user.bookings.new(yacht: @yacht)
   end
 
   def edit
@@ -19,12 +24,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
     @booking.total_price = (booking_params[:end_date].to_date - booking_params[:start_date].to_date).to_i * @yacht.price_per_day
     @booking.yacht = @yacht
     @booking.user = current_user
     if @booking.save!
-      redirect_to yacht_bookings_path(@yacht.id), notice: 'Booking was successfully created.'
+      redirect_to my_bookings_user_path(current_user), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -40,15 +44,23 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_path, notice: 'Booking was successfully destroyed.'
+    redirect_to my_bookings_user, notice: 'Booking was successfully destroyed.'
   end
 
+
+  def my_bookings
+    @bookings = @user.bookings
+  end
   # def calculate_total_price
   #   yacht = Yacht.find(yacht_id)
   #   self.total_price = (end_date.to_date - start_date.to_date).to_i * yacht.price_per_day
   # end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def set_booking
     @booking = Booking.find(params[:id])

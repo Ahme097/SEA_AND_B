@@ -20,7 +20,7 @@
     <div class="right-section-yacht-show">
       <div class="review-spacer-show">
         <button class="button-yacht-show-booking">
-          <%= link_to 'Book this Yacht', new_yacht_booking_path(@yacht, @booking) %>
+          <%= link_to 'Book this Yacht', new_user_yacht_booking_path(user_id: current_user, yacht_id: @yacht) %>
         </button>
         <% @yacht.reviews.each do |review| %>
           <div class="yacht-review-card-show">
