@@ -1,15 +1,11 @@
 <div class="header">
 
 <!--Content before waves-->
-<%= link_to yachts_path, class: "inner-header-link" do %>
   <div class="inner-header flex">
-    <h1 class="animation-title">You currently have
-    <%= Booking.count %>
-    Bookings -
-<%= link_to 'Click Here for more details on your current and past bookings', user_booking_path(user_id: current_user.id) %>
+    <h1 class="animation-title">
+<%= link_to ('Click Here for more information on your latest booking!').upcase, user_booking_path(user_id: current_user.id) %>
     </h1>
   </div>
-<% end %>
 <!--Waves Container-->
 <div>
 
