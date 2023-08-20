@@ -1,33 +1,38 @@
-    <div class="yacht-card-rows-show">
-    <div class="image-rating-card">
-<div class="left-section-show">
-    <%= image_tag @yacht.yacht_image, class:"yacht_photos-show" %>
-</div>
-<div class="review-spacer-show">
-    <% @yacht.reviews.each do |review| %>
-  <div class="yacht-review-card-show">
-    <p><strong>Rating:</strong> <%= review.rating %></p>
-    <p><strong>Comment:</strong> <%= review.comment %></p>
-    <p><strong> By <%= Faker::Name.first_name%></strong></p>
-    <%end%>
-</div>
+<div class="yacht-card-rows-show">
+  <div class="image-rating-card">
+    <div class="left-section-yacht-show">
+      <div class="scroll-container">
+        <%= image_tag @yacht.yacht_image, class: "yacht_photos-show" %>
+        <%= image_tag @yacht.yacht_interior_image, class: "yacht_photos-show" %>
+        <%= image_tag @yacht.yacht_cabin_image, class: "yacht_photos-show" %>
+      </div>
 
+<p><strong>Yacht Model</strong> <%= @yacht.name %></p>
+      <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
+      <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
+      <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
+      <p><strong>Onboard Chef:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
+      <p><strong>Onboard Driver:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
+      <p><strong>Description:</strong> <%= @yacht.description %></p>
+      <p>We also have drones on board to film your best holiday experience for you to cherish your memories.</p>
+
+    </div>
+    <div class="right-section-yacht-show">
+      <div class="review-spacer-show">
+        <button class="button-yacht-show-booking">
+          <%= link_to 'Book this Yacht', new_yacht_booking_path(@yacht, @booking) %>
+        </button>
+        <% @yacht.reviews.each do |review| %>
+          <div class="yacht-review-card-show">
+            <p><strong>Rating:</strong> <%= review.rating %></p>
+            <p><strong>Comment:</strong> <%= review.comment %></p>
+            <p><strong>By <%= Faker::Name.first_name %></strong></p>
+          </div>
+        <% end %>
+      </div>
+
+      <br>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-    <br>
-    <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
-    <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
-    <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
-    <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
-    <p><strong>Onboard Chef:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
-    <p><strong>Onboard Driver:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
-        <p><strong>Description:</strong> <%= @yacht.description %></p>
-        <p>We also have drones on board to film your best holiday experience for you to cherish your memories.
-    <div class="card-buttons">
-    </button>
-        <button>
-    <%= link_to 'Book this Yacht', new_yacht_booking_path(@yacht, @booking) %>
-    </button>
- </div>
-

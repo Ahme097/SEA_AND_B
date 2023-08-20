@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
-  before_action :set_yacht, only: %i[new  create]
+  before_action :set_yacht, only: %i[new create]
 
   def index
     @bookings = Booking.all
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     @booking.yacht = @yacht
     @booking.user = current_user
     if @booking.save!
-      redirect_to yacht_bookings_path(@yacht.id),  notice: 'Booking was successfully created.'
+      redirect_to yacht_bookings_path(@yacht.id), notice: 'Booking was successfully created.'
     else
       render :new
     end
