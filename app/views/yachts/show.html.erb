@@ -6,7 +6,9 @@
 
 <div class="scroll-container">
 <%= image_tag @yacht.yacht_image, class:"yacht_photos-show" %>  
-<%= image_tag "yacht1_interior.jpg", class:"yacht_photos-show" %>
+<%= image_tag @yacht.yacht_interior_image, class:"yacht_photos-show" %>
+<%= image_tag @yacht.yacht_cabin_image, class:"yacht_photos-show" %>
+
 </div>
     <%# <%= image_tag @yacht.yacht_image, class:"yacht_photos-show" %>
         <%# <%= image_tag "yacht1_interior.jpg", class:"yacht_photos-show" %>

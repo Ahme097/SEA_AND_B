@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_17_194536) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_20_052650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_17_194536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "yacht_interior_image"
+    t.string "yacht_cabin_image"
     t.index ["user_id"], name: "index_yachts_on_user_id"
   end
 

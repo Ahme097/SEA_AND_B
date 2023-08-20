@@ -31,6 +31,8 @@ yacht_1 = Yacht.create!(
   max_guest: 10,
   cabin: 5,
   yacht_image: "yacht1.jpg",
+  yacht_interior_image: "yacht1_interior.jpg",
+  yacht_cabin_image: "yacht1_cabin.jpg",
   price_per_day: 1000,
   description: "Experience luxury on the open waters with our spacious and elegant yacht."
 )
@@ -40,6 +42,8 @@ yacht_2 = Yacht.create!(
   max_guest: 8,
   cabin: 4,
   yacht_image: "yacht2.jpg",
+  yacht_interior_image: "yacht2_interior.jpg",
+  yacht_cabin_image: "yacht2_cabin.jpg",
   price_per_day: 850,
   description: "Set sail in style on our elegant cruiser with stunning ocean views."
 )
@@ -49,6 +53,8 @@ yacht_3 = Yacht.create!(
   max_guest: 12,
   cabin: 6,
   yacht_image: "yacht3.jpg",
+  yacht_interior_image: "yacht3_interior.jpg",
+  yacht_cabin_image: "yacht3_cabin.jpg",
   price_per_day: 1200,
   description: "Embark on a luxurious journey aboard our exquisite Ocean Paradise yacht."
 )
@@ -58,6 +64,8 @@ yacht_4 = Yacht.create!(
   max_guest: 6,
   cabin: 3,
   yacht_image: "yacht4.jpg",
+  yacht_interior_image: "yacht4_interior.jpg",
+  yacht_cabin_image: "yacht4_cabin.jpg",
   price_per_day: 750,
   description: "Experience tranquility and stunning sunsets on our Sunset Serenity yacht."
 )
@@ -67,6 +75,8 @@ yacht_5 = Yacht.create!(
   max_guest: 15,
   cabin: 7,
   yacht_image: "yacht5.jpg",
+  yacht_interior_image: "yacht5_interior.jpg",
+  yacht_cabin_image: "yacht5_cabin.jpg",
   price_per_day: 1500,
   description: "Sail like royalty aboard our spacious and opulent Royal Voyager yacht."
 )
@@ -76,6 +86,8 @@ yacht_6 = Yacht.create!(
   max_guest: 15,
   cabin: 7,
   yacht_image: "yacht6.jpg",
+  yacht_interior_image: "yacht6_interior.jpg",
+  yacht_cabin_image: "yacht6_cabin.jpg",
   price_per_day: 500,
   description: "Sail like royalty aboard our spacious and opulent Royal Mermaid."
 )
