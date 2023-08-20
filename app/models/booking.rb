@@ -8,5 +8,4 @@ class Booking < ApplicationRecord
   def confirmed?
     is_confirmed == true
   end
-
 end
