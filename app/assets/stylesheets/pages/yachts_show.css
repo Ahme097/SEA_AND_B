@@ -11,8 +11,9 @@
 }
 
 .yacht_photos-show {
-    height: 25vw;
-    width: 45vw;
+    padding: 3px;
+    height: 22vw;
+    width: 40vw;
 }
 
 .image-rating-card {
@@ -27,4 +28,16 @@ flex-wrap: wrap;
 
 .review-spacer-show {
     width: 45vw;
+}
+
+div.scroll-container {
+    background-color: rgba(217, 219, 222, 0.60);
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+div.scroll-container img {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
