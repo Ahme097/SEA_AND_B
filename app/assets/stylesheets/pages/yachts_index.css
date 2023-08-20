@@ -24,10 +24,12 @@
 }
 
 .right-section {
-    background-color: rgba(217, 219, 222, 0.39);
+    background-color: rgba(217, 219, 222, 0.60);
     border-radius: 4px;
     padding: 8px;
     margin-right: 8px;
+     width: 47vw;
+    height: 13vw;
 }
 
 .btn-text {
@@ -37,7 +39,7 @@
 
 /* CSS */
 .button-card-index {
-  background-color: rgba(51, 51, 51, 0.05);
+  background-color: rgba(51, 51, 51, 0.09);
   border-radius: 8px;
   border-width: 0;
   color: #333333;
