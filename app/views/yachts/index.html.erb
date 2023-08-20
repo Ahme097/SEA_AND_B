@@ -17,15 +17,15 @@
         <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
         <p><strong>Description:</strong> <%= yacht.description %></p>
         <div class="detail-btn">
-        <button type="button" class="button-card-index"> <a id="btn-text" href="<%= yacht_path(yacht) %>">View Details</a>
+        <% if user_signed_in? %>
+            <button type="button" class="button-card-index"> <a id="btn-text" href="<%= yacht_show_path(yacht) %>">View Details</a>
+        <% else %>
+            <button type="button" class="button-card-index"> <a id="btn-text">Please sign in to View Details</a>
+        <% end %>
         </div>
-        </div>  
+        </div>
       </div>
     </div>
   <% end %>
 
 </ul>
-
-<!-- HTML !-->
-
-
