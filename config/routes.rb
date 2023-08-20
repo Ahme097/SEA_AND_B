@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'my_bookings', to: 'bookings#user_bookings', on: :member
+    get 'all_bookings', to: 'bookings#all_bookings', as: :all_bookings
   end
+
 
   resources :yachts do
     get 'yacht_bookings', to: 'bookings#yacht_bookings', on: :member

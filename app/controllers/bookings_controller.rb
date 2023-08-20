@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
-  before_action :set_yacht, only: [:new, :create, :yacht_bookings]
+  # before_action :set_all_bookings, only: %i[all_bookings]
+  before_action :set_yacht, only: [:new, :create]
   before_action :set_user, only: [:my_bookings]
 
   def yacht_bookings
@@ -47,10 +48,14 @@ class BookingsController < ApplicationController
     redirect_to my_bookings_user, notice: 'Booking was successfully destroyed.'
   end
 
-
   def my_bookings
     @bookings = @user.bookings
   end
+
+  def all_bookings
+    @user_bookings = Booking.where(user_id: current_user.id)
+  end
+
   # def calculate_total_price
   #   yacht = Yacht.find(yacht_id)
   #   self.total_price = (end_date.to_date - start_date.to_date).to_i * yacht.price_per_day
@@ -73,4 +78,8 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+
+  # def set_all_bookings
+  #   @bookings = Booking.where(user_id: current_user.id)
+  # end
 end

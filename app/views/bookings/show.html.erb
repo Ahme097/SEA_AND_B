@@ -1,6 +1,8 @@
 
 <h1>Details of your most recent bookings</h1>
 <hr>
+<%= link_to 'View All Bookings', user_all_bookings_path %>
+
   <h2><%= @booking.yacht.name %></h2>
   <p><strong>Maximum Guests:</strong> <%= @booking.yacht.max_guest %></p>
   <p><strong>Number of Cabins:</strong> <%= @booking.yacht.cabin %></p>
