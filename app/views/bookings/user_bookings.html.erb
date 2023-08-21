@@ -1,11 +1,15 @@
 <div class="header">
 
 <!--Content before waves-->
+<%= link_to user_booking_path(user_id: current_user.id), class: "inner-header-link" do %>
   <div class="inner-header flex">
     <h1 class="animation-title">
-<%= link_to ('Click Here for more information on your latest booking!').upcase, user_booking_path(user_id: current_user.id) %>
+    Click here to see more details on your latest booking!<hr>Top 10 tips for your upcoming trip!<br>
+    <span class="word word-styling-tips"></span>
     </h1>
+    <br>
   </div>
+<% end %>
 <!--Waves Container-->
 <div>
 
@@ -25,3 +29,60 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 <!--Waves end-->
 
 </div>
+
+<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
+
+<%= javascript_tag do %>
+var words = [
+  "Tip 1: Pack light and prioritize comfortable, nautical-themed clothing.",
+  "Tip 2: Don't forget your favorite book to enjoy leisurely reading on deck.",
+  "Tip 3: Pack a sturdy camera for capturing stunning ocean sunsets and coastal vistas.",
+  "Tip 4: Plan a snorkeling adventure to discover the vibrant underwater world beneath your yacht.",
+  "Tip 5: Indulge in local seafood delicacies at ports along your route.",
+  "Tip 6: Bring sunscreen and a wide-brimmed hat for sun-soaked days on the open water.",
+  "Tip 7: Embrace a tech detox – disconnect and savor the beauty of the present moment.",
+  "Tip 8: Pack a journal to document your daily adventures and reflections.",
+  "Tip 9: Engage with the crew to learn about navigation and sailing techniques.",
+  "Tip 10: Relax, unwind, and relish the luxury of your private yacht escape!"
+];
+
+
+  var part, i = 0, offset = 0, len = words.length, forwards = true,
+      skip_count = 0, skip_delay = 15, speed = 60;
+
+  var wordflick = function () {
+    setInterval(function () {
+      if (forwards) {
+        if (offset >= words[i].length) {
+          ++skip_count;
+          if (skip_count == skip_delay) {
+            forwards = false;
+            skip_count = 0;
+          }
+        }
+      } else {
+        if (offset == 0) {
+          forwards = true;
+          i++;
+          offset = 0;
+          if (i >= len) {
+            i = 0;
+          }
+        }
+      }
+      part = words[i].substr(0, offset);
+      if (skip_count == 0) {
+        if (forwards) {
+          offset++;
+        } else {
+          offset--;
+        }
+      }
+      $(".word").text(part);
+    }, speed);
+  };
+
+  $(document).ready(function () {
+    wordflick();
+  });
+<% end %>
