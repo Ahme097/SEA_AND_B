@@ -3,7 +3,7 @@
 <!--Content before waves-->
 <%= link_to yachts_path, class: "inner-header-link" do %>
   <div class="inner-header flex">
-    <h1 class="animation-title">Your Seaside Escape</h1>
+    <h1 class="animation-title word"> </h1>
     <br>
   </div>
 <% end %>
@@ -26,3 +26,51 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 <!--Waves end-->
 
 </div>
+
+<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
+
+<%= javascript_tag do %>
+  var words = [
+    "Welcome to SEA&B!!",
+    "Super Enjoyable Adventures & Breakfast!",
+  ];
+
+  var part, i = 0, offset = 0, len = words.length, forwards = true,
+      skip_count = 0, skip_delay = 15, speed = 90;
+
+  var wordflick = function () {
+    setInterval(function () {
+      if (forwards) {
+        if (offset >= words[i].length) {
+          ++skip_count;
+          if (skip_count == skip_delay) {
+            forwards = false;
+            skip_count = 0;
+          }
+        }
+      } else {
+        if (offset == 0) {
+          forwards = true;
+          i++;
+          offset = 0;
+          if (i >= len) {
+            i = 0;
+          }
+        }
+      }
+      part = words[i].substr(0, offset);
+      if (skip_count == 0) {
+        if (forwards) {
+          offset++;
+        } else {
+          offset--;
+        }
+      }
+      $(".word").text(part);
+    }, speed);
+  };
+
+  $(document).ready(function () {
+    wordflick();
+  });
+<% end %>
