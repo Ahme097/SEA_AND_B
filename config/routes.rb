@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   resources :yachts do
     get 'yacht_bookings', to: 'bookings#yacht_bookings', on: :member
   end
+  
+  resources :yachts do
+    resources :reviews
+  end
 
   resources :users do
     resources :bookings, only: [:show]
     resources :yachts, only: [:index, :show] do
       resources :bookings, only: [:index, :new, :create]
-      resources :reviews
     end
   end
 
