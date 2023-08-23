@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :yachts do
     get 'yacht_bookings', to: 'bookings#yacht_bookings', on: :member
   end
-  
+
   resources :yachts do
     resources :reviews
   end
@@ -26,5 +26,4 @@ Rails.application.routes.draw do
   get '/yachts', to: 'yachts#index'
   get '/yachts/:id', to: 'yachts#show', as: 'yacht_show'
 
-  # Define other routes for your application
 end
