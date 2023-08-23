@@ -2,7 +2,11 @@ class YachtsController < ApplicationController
   before_action :set_yacht, only: %i[show edit update destroy]
 
   def index
+    if params[:query].present?
+      @yachts = Yacht.search_yacht_by_address(params[:query])
+    else
     @yachts = Yacht.all
+    end
   end
 
   def show
