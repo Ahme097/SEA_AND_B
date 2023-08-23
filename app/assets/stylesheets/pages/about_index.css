@@ -1,0 +1,6 @@
+/* This is the css for the view page inside the about folder  */
+.custom-height {
+  height: 283px; /* Adjust the height value as needed */
+  border-radius: 5px;
+  margin-left: 17.5%;
+}

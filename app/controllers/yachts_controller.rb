@@ -45,6 +45,7 @@ class YachtsController < ApplicationController
     redirect_to yachts_path, notice: 'Yacht was successfully deleted.'
   end
 
+
   private
 
   def set_yacht

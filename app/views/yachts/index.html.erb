@@ -27,6 +27,7 @@
         <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
         <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
         <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
+
         <p><strong>Description:</strong> <%= yacht.description %></p>
         <p><strong>Address:</strong> <%= yacht.address %></p>
 
@@ -34,7 +35,7 @@
         <% if user_signed_in? %>
             <button type="button" class="button-card-index"> <a id="btn-text" href="<%= yacht_show_path(yacht) %>">View Details</a>
         <% else %>
-            <button type="button" class="button-card-index"> <a id="btn-text">Please sign in to View Details</a>
+            <button type="button" class="button-card-index"> <a id="btn-text" href="<%=new_user_session_path %>">Please sign in to View Details</a>
         <% end %>
         </div>
         </div>
