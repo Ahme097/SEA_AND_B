@@ -1,3 +1,15 @@
+<div class="row justify-content-center">
+  <div class="col-sm-10 my-3">
+    <%= form_with url: yachts_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by Location"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
 <h2>Available Yachts in <%= Time.now.strftime('%B, %Y') %></h2>
 <hr>
@@ -16,6 +28,8 @@
         <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
         <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
         <p><strong>Description:</strong> <%= yacht.description %></p>
+        <p><strong>Address:</strong> <%= yacht.address %></p>
+
         <div class="detail-btn">
         <% if user_signed_in? %>
             <button type="button" class="button-card-index"> <a id="btn-text" href="<%= yacht_show_path(yacht) %>">View Details</a>
