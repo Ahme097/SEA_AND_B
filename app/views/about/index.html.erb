@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>About Our Yacht Rental Service</h2>
+       <p>If you're looking to experience the ultimate luxury of yachting or considering renting out your yacht to earn money, SEA & B Yacht Rentals is here to help. Our mission is to provide you with unforgettable maritime adventures that seamlessly blend comfort, style, and excitement. Whether you're seeking a serene cruise or an adventurous journey on the open seas, we have the perfect yacht to match your desires.</p>
+      <p>At SEA & B, our commitment lies in delivering a hassle-free booking process, ensuring your yacht experience is as smooth as the waves beneath you. Our fleet boasts a diverse selection of modern and meticulously maintained yachts, each meticulously designed to cater to your every whim. We take immense pride in providing exceptional service to guarantee that your yacht rental experience surpasses all expectations.</p>
+   </div>
+<div class="col-md-6">
+  <img src="<%= asset_path('office-bg.jpg') %>" alt="About Us" class="img-responsive custom-height">
+</div>
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Meet The Team</h3>
+      <div class="row">
+          <div class="col-md-4">
+            <div class="text-center">
+            <img src="<%= asset_path('office-employee1.jpg') %>" alt="About Us" class="img-responsive">
+              <h4><%= Faker::Name.name %></h4>
+              <p><%= Faker::Job.title %></p>
+            </div>
+          </div>
+                    <div class="col-md-4">
+            <div class="text-center">
+            <img src="<%= asset_path('office-employee2.jpg') %>" alt="About Us" class="img-responsive">
+              <h4><%= Faker::Name.female_first_name %> <%= Faker::Name.last_name %></h4>
+              <p><%= Faker::Job.title %></p>
+            </div>
+          </div>
+                    <div class="col-md-4">
+            <div class="text-center">
+            <img src="<%= asset_path('office-employee3.jpg') %>" alt="About Us" class="img-responsive">
+              <h4><%= Faker::Name.female_first_name %> <%= Faker::Name.last_name %></h4>
+              <p><%= Faker::Job.title %></p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

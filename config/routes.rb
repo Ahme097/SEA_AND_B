@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+
   devise_for :users
 
   resources :users do
@@ -22,6 +23,8 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index, :new, :create]
     end
   end
+
+  resources :about, only: [:index]
 
   get '/yachts', to: 'yachts#index'
   get '/yachts/:id', to: 'yachts#show', as: 'yacht_show'
