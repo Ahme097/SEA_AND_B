@@ -47,14 +47,6 @@ button {
     touch-action: manipulation;
 }
 
-form {
-    /* width: 24vw; */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .yacht_photos-show {
     max-width: 31vw;
     max-height: 20vw;
