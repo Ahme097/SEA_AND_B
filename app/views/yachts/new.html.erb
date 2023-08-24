@@ -1,7 +1,8 @@
 <h1>Create a New Yacht Listing</h1>
 
-<%= simple_form_for [@user, @yacht] do |f| %>
+<%= simple_form_for [@yacht] do |f| %>
   <%= f.input :name %>
+  <%= f.input :address %>
   <%= f.input :max_guest %>
   <%= f.input :cabin %>
   <%= f.input :price_per_day %>

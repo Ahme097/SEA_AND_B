@@ -20,15 +20,16 @@ class YachtsController < ApplicationController
   end
 
   def create
-    @yacht = current_user.yachts.new
+    @yacht = Yacht.new(yacht_params)
+    @yacht.user = current_user
 
-    if @yacht.save
+    if @yacht.save!
       # Upload images to Cloudinary and associate their URLs with the yacht
       uploaded_yacht_image = Cloudinary::Uploader.upload(params[:yacht][:yacht_image].tempfile)
       uploaded_interior_image = Cloudinary::Uploader.upload(params[:yacht][:yacht_interior_image].tempfile)
       uploaded_cabin_image = Cloudinary::Uploader.upload(params[:yacht][:yacht_cabin_image].tempfile)
 
-      @yacht.update(
+      @yacht.update!(
         yacht_image: uploaded_yacht_image['secure_url'],
         yacht_interior_image: uploaded_interior_image['secure_url'],
         yacht_cabin_image: uploaded_cabin_image['secure_url']
@@ -39,8 +40,9 @@ class YachtsController < ApplicationController
     end
   end
 
-  def user_yachts
-
+  def owner_yachts
+    @user = User.find(params[:user_id])
+    @yachts = @user.yachts
   end
 
   def edit
@@ -60,7 +62,6 @@ class YachtsController < ApplicationController
     redirect_to yachts_path, notice: 'Yacht was successfully deleted.'
   end
 
-
   private
 
   def set_user
@@ -73,8 +74,9 @@ class YachtsController < ApplicationController
 
   def yacht_params
     params.require(:yacht).permit(
-      :max_guest, :cabin, :price_per_day, :description,
-      :yacht_image, :yacht_interior_image, :yacht_cabin_image
+      :max_guest, :cabin, :price_per_day, :description, :name,
+      :yacht_image, :yacht_interior_image, :yacht_cabin_image,
+      :address
     )
   end
 

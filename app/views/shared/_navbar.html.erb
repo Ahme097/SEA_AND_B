@@ -16,19 +16,20 @@
                 <a class="nav-link" href="<%= yachts_path %>">Find a Yacht</a>
             </li>
             <% if user_signed_in? %>
+               <li class="nav-item">
+                 <a class="nav-link" href="<%= user_all_bookings_path(current_user)%>">
+                   You currently have
+                 <%= Booking.where(user_id: current_user.id).count %>
+                   Bookings
+                  </a>
+                </li>
+                 <li class="nav-item">
+                <a class="nav-link" href="<%=  owner_yachts_path(current_user) %>">View your listings</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="<%= new_yacht_path %>">List your Yacht</a>
               </li>
-               <li class="nav-item">
-                <a class="nav-link" href="<%= user_yachts_path(current_user) %>">View your listings</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<%= user_all_bookings_path(current_user)%>">
-                        You currently have
-                        <%= Booking.where(user_id: current_user.id).count %>
-                        Bookings
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"  %>
                 </li>
