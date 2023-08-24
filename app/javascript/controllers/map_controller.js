@@ -3,7 +3,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 // Connects to data-controller="map"
 export default class extends Controller {
-  static values = { apiKey: String };
+  static values = { apiKey: String, markers: Array };
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
     this.map = new mapboxgl.Map({
@@ -12,12 +12,6 @@ export default class extends Controller {
     });
     this.#addMarkersToMap();
     this.#fitMapToMarkers();
-    this.map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-      })
-    );
   }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds();
@@ -29,11 +23,12 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const customMarker = document.createAttribute.element("div");
-      customMarker.style.height = "30px";
-      customMarker.style.width = "30px";
-      customMarker.style.backgroundImage = "url('${marker.image_url'}";
-      customMarker.style.backgroundSize = "contain";
+      // const customMarker = document.createAttribute.element("div");
+      // customMarker.style.height = "30px";
+      // customMarker.style.width = "30px";
+      // customMarker.style.backgroundImage = "url('${marker.image_url'}";
+      console.log(marker);
+      // customMarker.style.backgroundSize = "contain";
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html);
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])

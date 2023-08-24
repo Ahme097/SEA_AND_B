@@ -6,9 +6,9 @@ class YachtsController < ApplicationController
     @markers = @yachts.geocoded.map do |yacht|
       {
         lat: yacht.latitude,
-        lng: yacht.longitude
-        info_window: render_to_string(partial: "info_window", locals: {flat: flat}),
-        marker_html: render_to_string(partial: "marker")
+        lng: yacht.longitude,
+         info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
+        # marker_html: render_to_string(partial: "marker")
       }
     end
   end

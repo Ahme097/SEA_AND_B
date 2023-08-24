@@ -34,11 +34,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_052650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "booking_id"
-  create_table "locations", force: :cascade do |t|
-    t.string "name"
-    t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,14 +58,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_052650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-<<<<<<< HEAD
-    t.string "yacht_interior_image"
-    t.string "yacht_cabin_image"
-=======
     t.float "latitude"
     t.float "longitude"
     t.string "address"
->>>>>>> a21998a (geo)
+    t.string "yacht_interior_image"
+    t.string "yacht_cabin_image"
     t.index ["user_id"], name: "index_yachts_on_user_id"
   end
 

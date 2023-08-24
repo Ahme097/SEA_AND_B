@@ -34,6 +34,7 @@ yacht_1 = Yacht.create!(
   yacht_interior_image: "yacht1_interior.jpg",
   yacht_cabin_image: "yacht1_cabin.jpg",
   price_per_day: 1000,
+  address: "Ibiza, Eivissa, 07800, Balearic Islands, Spain",
   description: "Experience luxury on the open waters with our spacious and elegant yacht."
 )
 yacht_2 = Yacht.create!(
@@ -45,6 +46,7 @@ yacht_2 = Yacht.create!(
   yacht_interior_image: "yacht2_interior.jpg",
   yacht_cabin_image: "yacht2_cabin.jpg",
   price_per_day: 850,
+  address: "Gravesend, DA12 2BG, London",
   description: "Set sail in style on our elegant cruiser with stunning ocean views."
 )
 yacht_3 = Yacht.create!(
@@ -56,6 +58,7 @@ yacht_3 = Yacht.create!(
   yacht_interior_image: "yacht3_interior.jpg",
   yacht_cabin_image: "yacht3_cabin.jpg",
   price_per_day: 1200,
+  address: "30201, Cartagena, Murcia, Spain",
   description: "Embark on a luxurious journey aboard our exquisite Ocean Paradise yacht."
 )
 yacht_4 = Yacht.create!(
@@ -67,6 +70,7 @@ yacht_4 = Yacht.create!(
   yacht_interior_image: "yacht4_interior.jpg",
   yacht_cabin_image: "yacht4_cabin.jpg",
   price_per_day: 750,
+  address: "12 Bd Jean Valensi, 13620 Carry-le-Rouet, France",
   description: "Experience tranquility and stunning sunsets on our Sunset Serenity yacht."
 )
 yacht_5 = Yacht.create!(
@@ -78,6 +82,7 @@ yacht_5 = Yacht.create!(
   yacht_interior_image: "yacht5_interior.jpg",
   yacht_cabin_image: "yacht5_cabin.jpg",
   price_per_day: 1500,
+  address: "Eastern Docks, Southampton, SO14 3QN",
   description: "Sail like royalty aboard our spacious and opulent Royal Voyager yacht."
 )
 yacht_6 = Yacht.create!(
@@ -89,6 +94,7 @@ yacht_6 = Yacht.create!(
   yacht_interior_image: "yacht6_interior.jpg",
   yacht_cabin_image: "yacht6_cabin.jpg",
   price_per_day: 500,
+  address: "Lungomare Duca degli Abruzzi, 84, 00121 Roma RM, Italy",
   description: "Sail like royalty aboard our spacious and opulent Royal Mermaid."
 )
 puts "creating bookings"
