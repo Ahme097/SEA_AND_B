@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
 
   def create
     @yacht = Yacht.find(params[:yacht_id])
+    @review = @yacht.reviews.build(review_params)
     if @review.save
       redirect_to yacht_path(@yacht), notice: "Review was successfully created."
     else
