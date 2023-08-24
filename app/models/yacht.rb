@@ -3,6 +3,7 @@ class Yacht < ApplicationRecord
   has_many :bookings
   has_many :reviews
 
+
   include PgSearch::Model
 pg_search_scope :search_yacht_by_address,
   against: [ :address ],
