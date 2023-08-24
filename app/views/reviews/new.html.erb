@@ -1,1 +1,6 @@
-<h1>hello world</h1>
+<h1>Write a Review for <%= @yacht.name %></h1>
+<%= simple_form_for([@yacht, @review]) do |f| %>
+    <%= f.input :rating, collection: 1..10, label: 'Rating' %>
+    <%= f.input :comment, as: :text, label: 'Comment'%>
+    <%= f.button :submit, "Submit Review", class: 'btn btn-primary'%>
+<% end %>
