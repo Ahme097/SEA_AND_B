@@ -19,6 +19,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="<%= new_yacht_path %>">List your Yacht</a>
               </li>
+               <li class="nav-item">
+                <a class="nav-link" href="<%= user_yachts_path(current_user) %>">View your listings</a>
+              </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<%= user_all_bookings_path(current_user)%>">
                         You currently have

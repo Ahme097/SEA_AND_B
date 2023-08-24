@@ -1,12 +1,14 @@
 <h1>Create a New Yacht Listing</h1>
 
-<%= simple_form_for @yacht do |f| %>
+<%= simple_form_for [@user, @yacht] do |f| %>
   <%= f.input :name %>
-  <%= f.file_field :yacht_image, class: 'form-control' %>
   <%= f.input :max_guest %>
   <%= f.input :cabin %>
   <%= f.input :price_per_day %>
   <%= f.input :description %>
+  <%= f.input :yacht_image, as: :file %>
+  <%= f.input :yacht_interior_image, as: :file %>
+  <%= f.input :yacht_cabin_image, as: :file %>
   <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
 

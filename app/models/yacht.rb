@@ -2,6 +2,7 @@ class Yacht < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :reviews
+  has_one_attached :photo
 
   include PgSearch::Model
 pg_search_scope :search_yacht_by_address,

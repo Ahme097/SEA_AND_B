@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     get 'all_bookings', to: 'bookings#all_bookings', as: :all_bookings
   end
 
-
   resources :yachts do
     get 'yacht_bookings', to: 'bookings#yacht_bookings', on: :member
   end
@@ -19,14 +18,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :bookings, only: [:show]
-    resources :yachts, only: [:index, :show] do
+    resources :yachts, only: [:index, :show, :new, :create] do
       resources :bookings, only: [:index, :new, :create]
     end
   end
 
   resources :about, only: [:index]
-
   get '/yachts', to: 'yachts#index'
   get '/yachts/:id', to: 'yachts#show', as: 'yacht_show'
-
 end

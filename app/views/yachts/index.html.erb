@@ -18,15 +18,18 @@
   <% @yachts.each do |yacht| %>
     <div class= "yacht_cards-in-index-page">
       <div class="left-section">
-        <%= image_tag yacht.yacht_image, class: 'yacht_photos' %>
-      </div>
+    <% if yacht.yacht_image.present? %>
+      <%= image_tag yacht.yacht_image, class: 'yacht_photos' %>
+    <% else %>
+      <!-- Handle case when no image is available -->
+    <% end %>      </div>
       <div class="right-section">
         <div class="info">
         </div>
         <h1><%= yacht.name %></h1>
         <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
         <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
-        <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
+      <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
 
         <p><strong>Description:</strong> <%= yacht.description %></p>
         <p><strong>Address:</strong> <%= yacht.address %></p>

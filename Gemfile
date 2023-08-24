@@ -57,8 +57,12 @@ gem 'unsplash'
 # Seed data
 gem 'faker'
 
-# Cloudinary
+#security
 gem "dotenv-rails", groups: [:development, :test]
+
+# Image uploading and hosting
+gem "cloudinary"
+
 gem "pg_search"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
