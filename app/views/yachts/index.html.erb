@@ -11,6 +11,13 @@
   </div>
 </div>
 
+<h1>Yachts</h1>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <h2>Available Yachts in <%= Time.now.strftime('%B, %Y') %></h2>
 <hr>
 <ul class= "yacht-card-rows">
@@ -46,3 +53,6 @@
   <% end %>
 
 </ul>
+
+
+<%= console%>

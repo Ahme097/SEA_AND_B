@@ -7,6 +7,13 @@ class YachtsController < ApplicationController
       @yachts = Yacht.search_yacht_by_address(params[:query])
     else
     @yachts = Yacht.all
+    @markers = @yachts.geocoded.map do |yacht|
+      {
+        lat: yacht.latitude,
+        lng: yacht.longitude,
+         info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
+        # marker_html: render_to_string(partial: "marker")
+      }
     end
   end
 
