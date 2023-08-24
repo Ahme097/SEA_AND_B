@@ -17,13 +17,16 @@
       <p><strong>Onboard Driver:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
       <p><strong>Description:</strong> <%= @yacht.description %></p>
       <p><strong>Address:</strong> <%= @yacht.address %></p>
-      <p>We also have drones on board to film your best holiday experience for you to cherish your memories.</p>
 
     </div>
     <div class="right-section-yacht-show">
       <div class="review-spacer-show">
         <button class="button-yacht-show-booking">
-          <%= link_to 'Book this Yacht', new_user_yacht_booking_path(user_id: current_user, yacht_id: @yacht) %>
+<% if @yacht.user_id == current_user.id %>
+  <%= link_to 'Edit this Yacht', edit_yacht_path(@yacht) %>
+<% else %>
+  <%= link_to 'Book this Yacht', new_user_yacht_booking_path(current_user, yacht_id: @yacht) %>
+<% end %>
         </button>
         <% @yacht.reviews.each do |review| %>
           <div class="yacht-review-card-show">
