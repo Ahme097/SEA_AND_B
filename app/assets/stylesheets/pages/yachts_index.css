@@ -63,3 +63,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+
+.d-flex {
+    width: 95%;
+}

@@ -1,15 +1,81 @@
-<h1 class="booking-title-new">New Booking page</h1>
+
+<div class="yacht-booking-contents">
+
+<h1 class="booking-title-new"> <%= @yacht.name %></h1>
+<h3 class="booking-reviews-new"><strong>Rating:</strong> <%= @reviews %></h3>
+
+<div class= "yacht-booking-new-photos">
+  <%= image_tag @yacht.yacht_image, class: "yacht_photos-show" %>
+  <%= image_tag @yacht.yacht_interior_image, class: "yacht_photos-show" %>
+  <%= image_tag @yacht.yacht_cabin_image, class: "yacht_photos-show" %>
+</div>
+
+<div class="below-image-booking-and-info">
+
+<div class="below-image-info">
+        <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
+        <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
+        <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
+        <p><strong>Description:</strong> <%= @yacht.description %></p>
+        <p><strong>Address:</strong> <%= @yacht.address %></p>
+
+</div>
+
+<div class="booking_card_booking_new">
 
 <div class="booking-form-new">
   <%= form_with(model: [@yacht, @booking], url: user_yacht_bookings_path(current_user, @yacht)) do |f| %>
-  <%= %>
-  <%= f.date_field :start_date %>
-  <%= f.date_field :end_date %>
-  <%# <%= f.input :total_price %>
-
+  <%= f.date_field :start_date %> 
+  <%= f.date_field :end_date  %>
   <%= f.button "Create Booking"  %>
-
-   <%# <%= @yacht.price_per_day%>
-<% end %>
-
+  <% end %>
 </div>
+
+<div class="total_price_booking_new">
+  <h4>Length of Stay is </h4>  <h4 id="days">...</h4> <h4> Days</h4>
+</div>
+<div class="total_price_booking_new">
+    <h4>Total Price:</h4>  <h4 id="price">...</h4>
+</div>
+<div>
+<h4>Service fee: we don't charge fees :) </h4> 
+</div>
+</div>
+
+
+
+
+<script>
+function daysDifference(startDate, endDate) {
+  var yacht_price = <%= @yacht.price_per_day %>;
+  // Create Date objects from the start and end dates.
+  var start = new Date(startDate);
+  var end = new Date(endDate);
+
+  // Calculate the difference in milliseconds between the two dates.
+  var difference = end.getTime() - start.getTime();
+
+  // Calculate the number of days in the difference.
+  var days = difference / (1000 * 60 * 60 * 24);
+  var price = difference / (1000 * 60 * 60 * 24) * yacht_price ;
+
+  return days;
+  return price;
+}
+
+document.getElementById("booking_start_date").addEventListener("change", function() {
+  // Calculate the difference in days when the start date changes.
+  var days = daysDifference(this.value, document.getElementById("booking_end_date").value);
+  document.getElementById("days").innerHTML = days;
+    var price = daysDifference(this.value, document.getElementById("booking_end_date").value);
+  document.getElementById("price").innerHTML = days;
+});
+
+document.getElementById("booking_end_date").addEventListener("change", function() {
+  // Calculate the difference in days when the end date changes.
+  var days = daysDifference(document.getElementById("booking_start_date").value, this.value);
+  document.getElementById("days").innerHTML = days;
+    var price = daysDifference(document.getElementById("booking_start_date").value, this.value);
+  document.getElementById("price").innerHTML = days;
+});
+</script>
