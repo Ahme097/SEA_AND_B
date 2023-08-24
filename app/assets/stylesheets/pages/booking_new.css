@@ -2,6 +2,90 @@
 
 }
 
+.booking-reviews-new {
+
+}
+
+.yacht-booking-contents {
+    margin: 3vw;
+}
+
 .booking-form-new {
-    
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    height: 5vw;
+    width: 31vw;
+}
+
+#booking_start_date {
+    height: 2vw;
+}
+
+#booking_end_date {
+    height: 2vw;
+}
+
+button {
+    background-color: #FFC65A;
+    border-radius: 2px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 9px;
+    list-style: none;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+form {
+    width: 24vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.yacht_photos-show {
+    max-width: 31vw;
+    max-height: 20vw;
+}
+
+.total_price_booking_new {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 13vw;
+}
+
+.booking_card_booking_new {
+    width: 25vw;
+    /* border-color: yellow;
+    border: dashed; */
+
+}
+
+.below-image-info {
+margin-top: 1vw;
+}
+
+.below-image-booking-and-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+strong {
+    font: caption;
 }
