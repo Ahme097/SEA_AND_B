@@ -13,11 +13,14 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'rails-ujs' %>
+
   </head>
   <body>
 <% unless request.path == '/' %>
   <%= render 'shared/navbar' %>
 <% end %>
+
     <p class="notice"> <%= notice %></p>
     <p class="alert"> <%= alert %></p>
     <%= yield %>

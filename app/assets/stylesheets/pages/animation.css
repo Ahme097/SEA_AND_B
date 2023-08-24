@@ -3,7 +3,7 @@
 .animation-title{
   font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
-  background-color: lightblue;
+  background-color: transparent;
   padding: 5px;
   border-radius: 10px
 }
@@ -99,4 +99,7 @@
   h1 {
     font-size:24px;
   }
+}
+.word-styling-tips{
+  font-size: smaller;
 }

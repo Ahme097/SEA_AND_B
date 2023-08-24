@@ -1,11 +1,6 @@
-<%= form_with(model: [@yacht, @booking, @review]) do |form| %>
-    <%= form.hidden_field :booking_id, value: @booking.id %>
-
-    <%= form.label :rating %>
-    <%= form.number_field :rating, in: 1..10 %>
-
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-
-    <%= form.submit "Submit Review" %>
-<%= end %>
+<h1>Write a Review for <%= @yacht.name %></h1>
+<%= simple_form_for([@yacht, @review]) do |f| %>
+    <%= f.input :rating, collection: 1..10, label: 'Rating' %>
+    <%= f.input :comment, as: :text, label: 'Comment'%>
+    <%= f.button :submit, "Submit Review", class: 'btn btn-primary'%>
+<% end %>

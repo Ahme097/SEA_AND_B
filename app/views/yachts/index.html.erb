@@ -1,3 +1,15 @@
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: yachts_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by Location"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
 <h1>Yachts</h1>
 
@@ -13,21 +25,26 @@
   <% @yachts.each do |yacht| %>
     <div class= "yacht_cards-in-index-page">
       <div class="left-section">
-        <%# <%= image_tag yacht.yacht_image, class: 'yacht_photos' %>
-      </div>
+    <% if yacht.yacht_image.present? %>
+      <%= image_tag yacht.yacht_image, class: 'yacht_photos' %>
+    <% else %>
+      <!-- Handle case when no image is available -->
+    <% end %>      </div>
       <div class="right-section">
         <div class="info">
         </div>
-        <h2><%= yacht.name %></h2>
+        <h1><%= yacht.name %></h1>
         <p><strong>Maximum Guests:</strong> <%= yacht.max_guest %></p>
         <p><strong>Cabin Count:</strong> <%= yacht.cabin %></p>
-        <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
+      <p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
         <p><strong>Description:</strong> <%= yacht.description %></p>
+        <p><strong>Address:</strong> <%= yacht.address %></p>
+
         <div class="detail-btn">
         <% if user_signed_in? %>
             <button type="button" class="button-card-index"> <a id="btn-text" href="<%= yacht_show_path(yacht) %>">View Details</a>
         <% else %>
-            <button type="button" class="button-card-index"> <a id="btn-text">Please sign in to View Details</a>
+            <button type="button" class="button-card-index"> <a id="btn-text" href="<%=new_user_session_path %>">Please sign in to View Details</a>
         <% end %>
         </div>
         </div>

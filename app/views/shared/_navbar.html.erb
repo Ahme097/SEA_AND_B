@@ -1,25 +1,46 @@
-<div class="navbar-custom-styling">
-      <h4>
-        <a class="btn btn-info" href="<%= yachts_path %>">
-          <i class="fas fa-sailboat custom-icon"></i> Yachts
-        </a>
-      </h4>
-    <div class="log-in-navbar-item">
-        <% if user_signed_in? %>
-        <button class="btn btn-info bookings-count-button">
-          <%# <%= link_to 'View Your Bookings', yacht_bookings_path, class: ' btn btn-info ' %>
-          You currently have <%= Booking.where(user_id: current_user.id).count %> Bookings
-        </button>
-        <h4>
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: " btn btn-secondary " %>
-        </h4>
-      <% else %>
-        <h4>
-          <%= link_to 'Create new account', new_user_registration_path, class: "btn btn-primary "  %>
-        </h4>
-        <h4>
-          <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary "  %>
-        </h4>
-      <% end %>
-      </div>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="<%=root_path%>">SEA & B</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto topnav ">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+              <li>
+               <a class="nav-link" href="<%=about_index_path%>">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%= yachts_path %>">Find a Yacht</a>
+            </li>
+            <% if user_signed_in? %>
+               <li class="nav-item">
+                 <a class="nav-link" href="<%= user_all_bookings_path(current_user)%>">
+                   You currently have
+                 <%= Booking.where(user_id: current_user.id).count %>
+                   Bookings
+                  </a>
+                </li>
+                 <li class="nav-item">
+                <a class="nav-link" href="<%=  owner_yachts_path(current_user) %>">View your listings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<%= new_yacht_path %>">List your Yacht</a>
+              </li>
+
+                <li class="nav-item">
+                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"  %>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                    <%= link_to 'Create new account', new_user_registration_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Log in', new_user_session_path, class: "nav-link" %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+</nav>
