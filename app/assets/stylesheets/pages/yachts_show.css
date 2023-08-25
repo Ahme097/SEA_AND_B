@@ -7,7 +7,7 @@
 }
 
 .left-section-yacht-show {
-    width: 42vw;
+    width: 48vw;
 }
 
 .yacht_photos-show {
@@ -69,6 +69,17 @@ div.scroll-container img {
 a {
     color: black;
     text-decoration: none;
+}
+
+#map-in-yacht-show-page {
+    display: flex;
+    width: 41vw;
+    height: 293px;
+    margin-left: 1vw;
+    /* margin-right: 5vw; */
+    margin-top: 0vw;
+    margin-bottom: 1vw;
+
 }
 
 
