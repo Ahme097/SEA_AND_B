@@ -5,42 +5,48 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto topnav ">
-            <li class="nav-item active">
+        <ul class="navbar-nav left-side-navbar">
+              <li class="nav-item <%= 'active' if current_page?(root_path) %>">
                 <a class="nav-link" href="#">Home</a>
             </li>
-              <li>
+            <li class="nav-item <%= 'active' if current_page?(about_index_path) %>">
                <a class="nav-link" href="<%=about_index_path%>">About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%= 'active' if current_page?(yachts_path) %>">
                 <a class="nav-link" href="<%= yachts_path %>">Find a Yacht</a>
             </li>
+        </ul>
             <% if user_signed_in? %>
-               <li class="nav-item">
+        <ul class="navbar-nav right-side-navbar">
+            <li class="nav-item <%= 'active' if current_page?user_all_bookings_path(current_user) %>">
                  <a class="nav-link" href="<%= user_all_bookings_path(current_user)%>">
                    You currently have
                  <%= Booking.where(user_id: current_user.id).count %>
                    Bookings
                   </a>
                 </li>
-                 <li class="nav-item">
+            <li class="nav-item <%= 'active' if current_page?owner_yachts_path(current_user) %>">
                 <a class="nav-link" href="<%=  owner_yachts_path(current_user) %>">View your listings</a>
               </li>
-              <li class="nav-item">
+            <li class="nav-item <%= 'active' if current_page?(new_yacht_path) %>">
                 <a class="nav-link" href="<%= new_yacht_path %>">List your Yacht</a>
               </li>
 
                 <li class="nav-item">
-                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"  %>
+                    <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link"  %>
                 </li>
+              </ul>
             <% else %>
-                <li class="nav-item">
+        <ul class="navbar-nav right-side-navbar">
+
+            <li class="nav-item <%= 'active' if current_page?(new_user_registration_path) %>">
                     <%= link_to 'Create new account', new_user_registration_path, class: "nav-link" %>
                 </li>
-                <li class="nav-item">
+            <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
                     <%= link_to 'Log in', new_user_session_path, class: "nav-link" %>
                 </li>
+                    </ul>
+
             <% end %>
-        </ul>
     </div>
 </nav>

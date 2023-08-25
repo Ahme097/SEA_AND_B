@@ -3,8 +3,10 @@
 <!--Content before waves-->
 <%= link_to yachts_path, class: "inner-header-link" do %>
   <div class="inner-header flex">
-    <h1 class="animation-title word"> </h1>
-    <br>
+    <h1 class="animation-title">
+    Welcome to SEA & B<hr>
+    <span class="word word-styling-tips"></span>
+    </h1>
   </div>
 <% end %>
 <!--Waves Container-->
@@ -31,12 +33,19 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 
 <%= javascript_tag do %>
   var words = [
-    "Welcome to SEA&B!!",
-    "Super Enjoyable Adventures & Breakfast!",
-  ];
+  "Sail away from the ordinary and into the extraordinary beauty of the sea. - Unknown",
+  "Life is short, and the world is wide. Cast off your worries and set sail. - Unknown",
+  "The ocean stirs the heart, inspires the imagination, and brings eternal joy to the soul. - Wyland",
+  "Adventure awaits on the horizon. Raise your sails and embrace the unknown. - Unknown",
+  "Every sunset is an opportunity to reset. Let the tranquil waves soothe your spirit. - Unknown",
+  "The sea, once it casts its spell, holds one in its net of wonder forever. - Jacques Cousteau",
+  "A journey by yacht is a journey to the soul's most secret places. - Unknown",
+  "Escape the ordinary, let the sea breeze carry you to places beyond your dreams. - Unknown",
+  "Travel not to escape life, but for life not to escape you. Let your yacht be your vessel of memories. - Unknown"
+];
 
   var part, i = 0, offset = 0, len = words.length, forwards = true,
-      skip_count = 0, skip_delay = 15, speed = 90;
+      skip_count = 0, skip_delay = 15, speed = 100;
 
   var wordflick = function () {
     setInterval(function () {

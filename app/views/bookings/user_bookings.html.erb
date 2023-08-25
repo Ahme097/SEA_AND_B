@@ -4,7 +4,7 @@
 <%= link_to user_booking_path(user_id: current_user.id), class: "inner-header-link" do %>
   <div class="inner-header flex">
     <h1 class="animation-title">
-    Click here to see more details on your latest booking!<hr>Top 10 tips for your upcoming trip!<br>
+    Click here to see more details on your latest booking!<hr><span class="animation-subtitle-text-font-size">Top 10 tips for your upcoming trip!</span>
     <span class="word word-styling-tips"></span>
     </h1>
     <br>
@@ -48,7 +48,7 @@ var words = [
 
 
   var part, i = 0, offset = 0, len = words.length, forwards = true,
-      skip_count = 0, skip_delay = 15, speed = 60;
+      skip_count = 0, skip_delay = 15, speed = 100;
 
   var wordflick = function () {
     setInterval(function () {
