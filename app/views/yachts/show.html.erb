@@ -33,7 +33,7 @@
             <%= link_to 'Book this Yacht', new_user_yacht_booking_path(current_user, yacht_id: @yacht) %>
           <% end %>
         </button>
-        <button class="button-yacht-show-booking">
+        <button class="button-yacht-show-booking`">
         <%= link_to 'Create Review', new_yacht_review_path(yacht_id: @yacht)%>
         </button>
         <% @yacht.reviews.each do |review| %>
