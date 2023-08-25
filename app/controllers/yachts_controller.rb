@@ -20,16 +20,16 @@ end
 
   def show
     @yacht = Yacht.find(params[:id])
-    @yachts = Yacht.all
+    # @yachts = Yacht.all
     @reviews = @yacht.reviews
-    @markers = @yachts.geocoded.map do |yacht|
+    @markers = [
       {
-        lat: yacht.latitude,
-        lng: yacht.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
+        lat: @yacht.latitude,
+        lng: @yacht.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {yacht: @yacht}),
         # marker_html: render_to_string(partial: "marker")
       }
-    end
+    ]
   end
 
   def new
