@@ -1,2 +1,10 @@
 <h2><%= yacht.name %></h2>
-<p><%= yacht.price_per_day %></p>
+
+<%= link_to yacht_show_path(yacht) do %>
+<%= image_tag yacht.yacht_image, class: "yacht_map_popup_image" %>
+<div style="margin-top: 1vw;">
+<% end %>
+
+<p><strong>Price per Day:</strong> £<%= yacht.price_per_day %></p>
+<p><strong>Address:</strong> <%= yacht.address %></p>
+</div>

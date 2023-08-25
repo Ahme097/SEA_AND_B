@@ -32,7 +32,7 @@
 </div>
 
 <div class="total_price_booking_new">
-  <h4>Length of Stay is </h4>  <h4 id="days">...</h4> <h4> Days</h4>
+  <h4>Length of Stay is </h4>  <h4 id="days">...</h4>
 </div>
 <div class="total_price_booking_new">
     <h4>Total Price:</h4>  <h4 id="price">...</h4>
@@ -59,23 +59,21 @@ function daysDifference(startDate, endDate) {
   var days = difference / (1000 * 60 * 60 * 24);
   var price = difference / (1000 * 60 * 60 * 24) * yacht_price ;
 
-  return days;
-  return price;
+  return {days: days, price: price};
+  // return price;
 }
 
 document.getElementById("booking_start_date").addEventListener("change", function() {
   // Calculate the difference in days when the start date changes.
-  var days = daysDifference(this.value, document.getElementById("booking_end_date").value);
-  document.getElementById("days").innerHTML = days;
-    var price = daysDifference(this.value, document.getElementById("booking_end_date").value);
-  document.getElementById("price").innerHTML = days;
+  var data = daysDifference(this.value, document.getElementById("booking_end_date").value);
+  document.getElementById("days").innerHTML = `${data.days} Days`;
+  document.getElementById("price").innerHTML = `£${data.price}`;   
 });
 
 document.getElementById("booking_end_date").addEventListener("change", function() {
   // Calculate the difference in days when the end date changes.
-  var days = daysDifference(document.getElementById("booking_start_date").value, this.value);
-  document.getElementById("days").innerHTML = days;
-    var price = daysDifference(document.getElementById("booking_start_date").value, this.value);
-  document.getElementById("price").innerHTML = days;
+  var data = daysDifference(document.getElementById("booking_start_date").value, this.value);
+  document.getElementById("days").innerHTML = `${data.days} Days`;
+  document.getElementById("price").innerHTML = `£${data.price}`;
 });
 </script>

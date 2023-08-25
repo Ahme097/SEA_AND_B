@@ -1,5 +1,3 @@
-  <%= link_to 'Create Review', new_yacht_review_path(yacht_id: @yacht) %>
-
 <div class="yacht-card-rows-show">
   <div class="image-rating-card">
     <div class="left-section-yacht-show">
@@ -9,24 +7,34 @@
         <%= image_tag @yacht.yacht_cabin_image, class: "yacht_photos-show" %>
       </div>
 
-<p><strong>Yacht Model</strong> <%= @yacht.name %></p>
-      <p><strong>Maximum Guests:</strong> <%= @yacht.max_guest %></p>
-      <p><strong>Cabin Count:</strong> <%= @yacht.cabin %></p>
-      <p><strong>Price per Day:</strong> £<%= @yacht.price_per_day %></p>
-      <p><strong>Onboard Chef:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
-      <p><strong>Onboard Driver:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
-      <p><strong>Description:</strong> <%= @yacht.description %></p>
-      <p><strong>Address:</strong> <%= @yacht.address %></p>
+      <div style= "margin-top: 1vw;">
+      <p><strong>Yacht Model</strong> <%= @yacht.name %></p>
+      <p><strong>Maximum Guests</strong> <%= @yacht.max_guest %></p>
+      <p><strong>Cabin Count</strong> <%= @yacht.cabin %></p>
+      <p><strong>Price per Day</strong> £<%= @yacht.price_per_day %></p>
+      <p><strong>Onboard Chef</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
+      <p><strong>Onboard Driver</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
+      <p><strong>Description</strong> <%= @yacht.description %></p>
+      <p><strong>Address</strong> <%= @yacht.address %></p>
+      </div>
 
     </div>
     <div class="right-section-yacht-show">
       <div class="review-spacer-show">
+        <div id="map-in-yacht-show-page"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <button class="button-yacht-show-booking" style= "">
+          <% if @yacht.user_id == current_user.id %>
+            <%= link_to 'Edit this Yacht', edit_yacht_path(@yacht) %>
+          <% else %>
+            <%= link_to 'Book this Yacht', new_user_yacht_booking_path(current_user, yacht_id: @yacht) %>
+          <% end %>
+        </button>
         <button class="button-yacht-show-booking">
-<% if @yacht.user_id == current_user.id %>
-  <%= link_to 'Edit this Yacht', edit_yacht_path(@yacht) %>
-<% else %>
-  <%= link_to 'Book this Yacht', new_user_yacht_booking_path(current_user, yacht_id: @yacht) %>
-<% end %>
+        <%= link_to 'Create Review', new_yacht_review_path(yacht_id: @yacht)%>
         </button>
         <% @yacht.reviews.each do |review| %>
           <div class="yacht-review-card-show">
@@ -36,9 +44,8 @@
           </div>
         <% end %>
       </div>
-
-      <br>
-      </div>
     </div>
   </div>
 </div>
+
+<%=console%>
