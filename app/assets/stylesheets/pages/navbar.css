@@ -1,0 +1,46 @@
+/* Style for the right-side content */
+.right-side-navbar .nav-link {
+  color: #0c0e20; /* Set the text color */
+}
+
+.right-side-navbar .nav-item.active .nav-link {
+  color: #1b3ce4; /* Set the active link color */
+}
+
+/* Style for the left-side content */
+.left-side-navbar .nav-link {
+  color: #333; /* Set the text color */
+}
+
+.left-side-navbar .nav-item.active .nav-link {
+  color: #e83e3e; /* Set the active link color */
+}
+
+/* Add spacing between navigation links */
+.nav-item {
+  margin-right: 15px;
+}
+
+/* Adjust the logo's font size and color */
+.navbar-brand img {
+  width: 100px; /* Adjust the width as needed */
+  height: 120%; /* Maintain aspect ratio */
+  border-radius: 2px;
+}
+
+/* Align the right side of the navigation to the right */
+.right-side-navbar {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+/* Adjust margin for the left side navigation */
+.left-side-navbar {
+  margin-right: auto;
+  font-size: 12px;
+}
+
+/* Style for active link indicator */
+.nav-item.active .nav-link::before {
+  content: "> "; /* Add a custom indicator before active link */
+}
