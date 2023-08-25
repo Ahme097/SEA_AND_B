@@ -1,0 +1,144 @@
+
+<%if @bookings.exists? %>
+<h1>You currently have <%=@bookings.count %> booking requests</h1>
+
+  <% @bookings.each do |booking| %>
+    <p><strong>£<%= booking.total_price%></strong> calculated for the duration of <%= (booking.end_date - booking.start_date).to_i %> days at a rate of £<%=booking.yacht.price_per_day %>  per day</p>
+  <h2><%= booking.yacht.name %></h2>
+  <p><strong>Reference Number: SB00<%= booking.id %></strong> </p>
+  <p><strong>Name of renter</strong> <%= Faker::Name.name_with_middle %></p>
+  <p><strong>Email address</strong> <%= User.find(booking.user_id).email %></p>
+   <p><strong>Start Date</strong> <%= booking.start_date %></p>
+  <p><strong>End Date</strong> <%= booking.end_date %></p>
+  <p><strong>Email:</strong>  <%= Faker::Internet.email %></p>
+  <p><strong>Phone:</strong>  <%= Faker::PhoneNumber.cell_phone %></p>
+
+  <%= image_tag booking.yacht.yacht_image, class: "yacht_photos-show" %>
+  <button>Accept Booking Request</button>
+  <%# ----Need to add a chechbox to confirm the booking request ------ %>
+<% end %>
+<%else %>
+<div class="card-container-section-tips-title">
+<h1>Welcome to Your Yacht Rental Adventure!</h1>
+<p>Exciting times ahead! While you don't have any bookings just yet, you're on the path to earning with your yacht.<br> Let's explore some valuable tips to ensure you make the most of renting out your yachts and creating wonderful experiences for your guests.</p>
+</div>
+
+  <div class="card-container-section-card-tips">
+
+      <section class="section-card-tips-yacht">
+        <h2>1. Prepare Your Yacht</h2>
+        <p>Before listing your yacht for rent, make sure it's in top condition:</p>
+        <ul>
+          <li>Thoroughly clean the interior and exterior.</li>
+          <li>Check all systems and equipment for proper functionality.</li>
+          <li>Ensure safety equipment is up-to-date and accessible.</li>
+        </ul>
+      </section>
+      <section class="section-card-tips-yacht">
+        <h2>2. Create a Detailed Listing</h2>
+        <p>Provide potential renters with all the information they need:</p>
+        <ul>
+          <li>Include high-quality photos of the yacht from various angles.</li>
+          <li>Describe the yacht's features, amenities, and capacity.</li>
+          <li>Specify rental rates, availability, and any additional costs.</li>
+        </ul>
+      </section>
+      <section class="section-card-tips-yacht">
+        <h2>3. Set Clear Rental Policies</h2>
+        <p>Establish rules and expectations to ensure a smooth rental process:</p>
+        <ul>
+          <li>Define minimum rental duration and cancellation policies.</li>
+          <li>Outline who is responsible for fuel, cleaning, and damages.</li>
+          <li>Provide guidelines for onboard behavior and safety.</li>
+        </ul>
+      </section>
+      <section class="section-card-tips-yacht">
+        <h2>4. Communicate Responsively</h2>
+        <p>Respond promptly to inquiries and be available for renters:</p>
+        <ul>
+          <li>Answer questions about the yacht, itinerary, and rental process.</li>
+          <li>Provide clear instructions for check-in, check-out, and emergencies.</li>
+        </ul>
+      </section>
+      <section class="section-card-tips-yacht">
+        <h2>5. Build Trust with Renters</h2>
+        <p>Earn positive reviews and repeat business by providing exceptional service:</p>
+        <ul>
+          <li>Ensure the yacht is well-maintained and ready for each rental.</li>
+          <li>Offer a warm welcome and thorough orientation to the renters.</li>
+          <li>Address any concerns or issues promptly and professionally.</li>
+        </ul>
+      </section>
+      <section class="section-card-tips-yacht">
+    <h2>6. Showcase Unique Features</h2>
+    <p>Highlight special amenities that set your yacht apart:</p>
+    <ul>
+      <li>Emphasize luxury features like a jacuzzi or private deck.</li>
+      <li>Showcase entertainment options such as water sports equipment.</li>
+      <li>Describe any unique experiences guests can have onboard.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>7. Plan for Safety</h2>
+    <p>Prioritize the safety and well-being of your guests:</p>
+    <ul>
+      <li>Provide clear safety instructions and guidelines.</li>
+      <li>Ensure life jackets and safety equipment are readily accessible.</li>
+      <li>Inform guests about emergency protocols and contacts.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>8. Maintain Consistency</h2>
+    <p>Deliver a consistent and reliable rental experience:</p>
+    <ul>
+      <li>Keep the yacht in the same condition as advertised.</li>
+      <li>Offer consistent levels of service and amenities.</li>
+      <li>Meet or exceed expectations to build trust with renters.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>9. Consider Special Packages</h2>
+    <p>Create appealing rental packages to attract more guests:</p>
+    <ul>
+      <li>Offer special rates for longer rental durations.</li>
+      <li>Create themed packages for events like birthdays or anniversaries.</li>
+      <li>Include extras like guided tours or gourmet dining options.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>10. Request Reviews and Feedback</h2>
+    <p>Encourage satisfied guests to leave reviews and provide feedback:</p>
+    <ul>
+      <li>Kindly ask guests to share their positive experiences.</li>
+      <li>Use feedback to improve services and address any concerns.</li>
+      <li>Positive reviews can attract more renters in the future.</li>
+    </ul>
+  </section>
+
+  </div>
+  <div class="card-container-section-tips-title">
+          <h2>Contact Your Personalized Yacht Specialist</h2>
+</div>
+
+<div>
+  <section>
+    <div class="contact-team-info">
+      <img src="<%= asset_path('office-employee3.jpg') %>" alt="About Us" class="img-responsive img-yacht-employee">
+     <div class="contact-team-text">
+        <h3><%= Faker::Name.female_first_name %> <%= Faker::Name.last_name %></h3>
+        <p>Your Personalized Yacht Specialist</p>
+        <p>Email: <%= Faker::Internet.email %></p>
+        <p>Phone: <%= Faker::PhoneNumber.cell_phone %></p>
+        <p>We're here to help you maximize your earnings!</p>
+      </div>
+    </div>
+  </section>
+
+
+
+<%end  %>
+</ul>
