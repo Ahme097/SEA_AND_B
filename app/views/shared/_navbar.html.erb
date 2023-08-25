@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="<%=root_path%>">SEA & B</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav left-side-navbar">
+            <a class="navbar-brand" href="<%=root_path%>">
+              <%= image_tag 'logo.jpg', alt: 'SEA & B Logo' %>
+              </a>
+
               <li class="nav-item <%= 'active' if current_page?(root_path) %>">
                 <a class="nav-link" href="#">Home</a>
             </li>

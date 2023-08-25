@@ -22,8 +22,10 @@
 }
 
 /* Adjust the logo's font size and color */
-.navbar-brand {
-  font-size: 24px;
+.navbar-brand img {
+  width: 100px; /* Adjust the width as needed */
+  height: 120%; /* Maintain aspect ratio */
+  border-radius: 2px;
 }
 
 /* Align the right side of the navigation to the right */
