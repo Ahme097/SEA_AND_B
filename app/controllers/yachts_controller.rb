@@ -11,7 +11,7 @@ class YachtsController < ApplicationController
       {
         lat: yacht.latitude,
         lng: yacht.longitude,
-         info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
+        info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
         # marker_html: render_to_string(partial: "marker")
       }
     end
@@ -20,7 +20,16 @@ end
 
   def show
     @yacht = Yacht.find(params[:id])
+    @yachts = Yacht.all
     @reviews = @yacht.reviews
+    @markers = @yachts.geocoded.map do |yacht|
+      {
+        lat: yacht.latitude,
+        lng: yacht.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
+        # marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new

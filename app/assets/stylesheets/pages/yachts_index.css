@@ -67,3 +67,23 @@
 .d-flex {
     width: 95%;
 }
+
+.yachts-list-map-button {
+    padding: 0.8vw;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 27%;
+    /* margin-left: 24vw; */
+    flex-wrap: nowrap;
+}
+
+h2 {
+    margin-top: 0.25vw;
+}
+
+.yacht_map_popup_image {
+    height: 7vw;
+    width: 11vw;
+}

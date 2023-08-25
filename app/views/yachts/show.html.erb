@@ -35,6 +35,13 @@
             <p><strong>By <%= Faker::Name.first_name %></strong></p>
           </div>
         <% end %>
+
+        <div id="map-in-yacht-show-page" style="display: flex; width: 90%; height: 400px; margin-left: 5vw; margin-right: 5vw; margin-top: 1vw; margin-bottom: 1vw;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+      
       </div>
 
       <br>
@@ -42,3 +49,5 @@
     </div>
   </div>
 </div>
+
+<%=console%>
