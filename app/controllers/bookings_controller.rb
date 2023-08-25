@@ -1,11 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[edit update destroy]
   # before_action :set_all_bookings, only: %i[all_bookings]
-  before_action :set_yacht, only: [:new, :create]
-  before_action :set_user, only: [:my_bookings]
+  before_action :set_yacht, only: [:new, :create, :yacht_bookings]
+  before_action :set_user, only: [:my_bookings, :yacht_bookings]
 
   def yacht_bookings
-    @bookings = @yacht.bookings
+    @bookings = Booking.where(yacht_id: @yacht.id)
   end
 
   def index

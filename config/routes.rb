@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :bookings, only: [:show]
+    resources :bookings, only: [:show, :update]
     resources :yachts, only: [:index, :new, :create, :edit] do
       resources :bookings, only: [:index, :new, :create]
     end
@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   get '/yachts', to: 'yachts#index'
   get '/yachts/:id', to: 'yachts#show', as: 'yacht_show'
   get 'owner_yachts/:user_id', to: 'yachts#owner_yachts', as: :owner_yachts
-
 end
