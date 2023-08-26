@@ -86,11 +86,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_26_121238) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
-    t.float "longituded"
+    t.float "longitude"
     t.string "address"
-    t.bigint "user_id"
     t.string "yacht_interior_image"
     t.string "yacht_cabin_image"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_yachts_on_user_id"
   end
 
@@ -98,4 +98,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_26_121238) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "yachts"
+  add_foreign_key "yachts", "users"
 end

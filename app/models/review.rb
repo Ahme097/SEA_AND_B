@@ -1,3 +1,2 @@
 class Review < ApplicationRecord
-
 end

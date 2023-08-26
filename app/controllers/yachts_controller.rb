@@ -1,22 +1,22 @@
 class YachtsController < ApplicationController
   before_action :set_yacht, only: %i[show edit update destroy]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_user, only: %i[new create]
 
   def index
     if params[:query].present?
       @yachts = Yacht.search_yacht_by_address(params[:query])
     else
-    @yachts = Yacht.all
-    @markers = @yachts.geocoded.map do |yacht|
-      {
-        lat: yacht.latitude,
-        lng: yacht.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {yacht: yacht}),
-        # marker_html: render_to_string(partial: "marker")
-      }
+      @yachts = Yacht.all
+      @markers = @yachts.geocoded.map do |yacht|
+        {
+          lat: yacht.latitude,
+          lng: yacht.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { yacht: })
+          # marker_html: render_to_string(partial: "marker")
+        }
+      end
     end
   end
-end
 
   def show
     @yacht = Yacht.find(params[:id])
@@ -26,7 +26,7 @@ end
       {
         lat: @yacht.latitude,
         lng: @yacht.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {yacht: @yacht}),
+        info_window_html: render_to_string(partial: "info_window", locals: { yacht: @yacht })
         # marker_html: render_to_string(partial: "marker")
       }
     ]
@@ -97,5 +97,4 @@ end
       :address
     )
   end
-
 end

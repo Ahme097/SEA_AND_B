@@ -58,8 +58,8 @@ gem 'unsplash'
 # Seed data
 gem 'faker'
 
-#security
-gem "dotenv-rails", groups: [:development, :test]
+# security
+gem "dotenv-rails", groups: %i[development test]
 
 # Image uploading and hosting
 gem "cloudinary"
