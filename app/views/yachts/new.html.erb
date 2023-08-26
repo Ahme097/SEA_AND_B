@@ -1,19 +1,22 @@
 <div class="container">
-<h1>Create a New Yacht Listing</h1>
+  <body class=>
+    <h1 class="new-yacht-heading">Create a New Yacht Listing</h1>
+    <%= simple_form_for [@yacht] do |f| %>
+        <div class= "new-yacht">
+          <%= f.input :name %>
+          <%= f.input :address %>
+          <%= f.input :max_guest %>
+          <%= f.input :cabin %>
+          <%= f.input :price_per_day %>
+          <%= f.input :description %>
+          <%= f.input :yacht_image, as: :file %>
+          <%= f.input :yacht_interior_image, as: :file %>
+          <%= f.input :yacht_cabin_image, as: :file %>
+          <%= f.button :submit, class: 'submit-button-2' %>
+        </div>
+      <% end %>
+      <%= link_to 'Back to Yachts', yachts_path %> 
+    </body>
+  </div>
 
-<%= simple_form_for [@yacht] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :max_guest %>
-  <%= f.input :cabin %>
-  <%= f.input :price_per_day %>
-  <%= f.input :description %>
-  <%= f.input :yacht_image, as: :file %>
-  <%= f.input :yacht_interior_image, as: :file %>
-  <%= f.input :yacht_cabin_image, as: :file %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-<% end %>
 
-<%= link_to 'Back to Yachts', yachts_path %>
-
-</div>
