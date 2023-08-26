@@ -27,7 +27,7 @@ password: "buyer111"
 puts "creating yachts"
 yacht_1 = Yacht.create!(
   user_id: user_1.id,
-  name: "Luxury Yacht 1",
+  name: "Thousand Sunny",
   max_guest: 10,
   cabin: 5,
   yacht_image: "yacht1.jpg",
