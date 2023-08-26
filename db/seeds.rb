@@ -14,6 +14,8 @@ puts "destroyed seeds"
 
 puts "creating users"
 
+all_users_id = []
+
 user_1 = User.create!(
 email: "owner@gmail.com",
 password: "owner111"
@@ -24,9 +26,14 @@ email: "buyer@gmail.com",
 password: "buyer111"
 )
 
+
+User.all.each do |user|
+  all_users_id << user.id
+end
+
 puts "creating yachts"
 yacht_1 = Yacht.create!(
-  user_id: user_1.id,
+  user_id: all_users_id.sample,
   name: "Thousand Sunny",
   max_guest: 10,
   cabin: 5,
@@ -39,7 +46,7 @@ yacht_1 = Yacht.create!(
 )
 
 yacht_2 = Yacht.create!(
-  user_id: user_1.id,
+  user_id: all_users_id.sample,
   name: "Elegant Cruiser",
   max_guest: 8,
   cabin: 4,
@@ -52,7 +59,7 @@ yacht_2 = Yacht.create!(
 )
 
 yacht_3 = Yacht.create!(
-  user_id: user_1.id,
+  user_id: all_users_id.sample,
   name: "Ocean Paradise",
   max_guest: 12,
   cabin: 6,
@@ -62,10 +69,10 @@ yacht_3 = Yacht.create!(
   price_per_day: 1200,
   description: "Embark on a luxurious journey aboard our exquisite Ocean Paradise yacht.",
   address: "Bristol, United Kingdom"
-  
+
 )
 yacht_4 = Yacht.create!(
-  user_id: user_1.id,
+  user_id: all_users_id.sample,
   name: "Sunset Serenity",
   max_guest: 6,
   cabin: 3,
@@ -78,7 +85,7 @@ yacht_4 = Yacht.create!(
 )
 
 yacht_5 = Yacht.create!(
-  user_id: user_1.id,
+  user_id: all_users_id.sample,
   name: "Royal Voyager",
   max_guest: 15,
   cabin: 7,
@@ -88,10 +95,10 @@ yacht_5 = Yacht.create!(
   price_per_day: 1500,
   description: "Sail like royalty aboard our spacious and opulent Royal Voyager yacht.",
   address: "Piombino, Italy"
-  
+
 )
 yacht_6 = Yacht.create!(
-  user_id: user_1.id,
+  user_id: all_users_id.sample,
   name: "Royal Mermaid",
   max_guest: 15,
   cabin: 7,
