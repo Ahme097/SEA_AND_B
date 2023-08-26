@@ -3,6 +3,11 @@
     margin-right: 0;
     margin-left: 3em;
 }
+.new-yacht-heading {
+    margin: 0.8em;
+    margin-left: 0;
+}
+
 .comment label{
     font-size: medium;
 }
@@ -40,3 +45,36 @@
     --bs-btn-font-size: 1.3rem;
     --bs-btn-font-weight: 553;
     }
+.new-yacht label{
+    font-size: medium;
+    font-weight: normal;
+}
+
+.new-yacht {
+    margin-bottom: 9em;
+}
+
+.submit-button-2 {
+    margin-left: 0.1em  !important;
+    padding: 10px 120px !important;    
+    margin-left: 20px;    
+    background-color: #FFC65A;
+    border-radius: 2px;
+    border-width: 5px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
