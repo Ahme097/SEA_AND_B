@@ -11,8 +11,10 @@
     font-size: medium;
 }
 
-.submit-button button{
-    // margin-left: 20px;    
+.submit-button {
+    margin-left: 11.5em !important;
+    padding: 0px 120px !important;
+    margin-left: 20px;    
     background-color: #FFC65A;
     border-radius: 2px;
     border-width: 0;
@@ -34,7 +36,7 @@
     touch-action: manipulation;
 }
 
-a {
-    color: black;
-    text-decoration: none;
-}
+.btn {
+    --bs-btn-font-size: 1.3rem;
+    --bs-btn-font-weight: 553;
+    }
