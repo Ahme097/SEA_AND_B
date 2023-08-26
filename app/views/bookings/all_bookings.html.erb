@@ -1,7 +1,14 @@
 
-<h1>Details of all your recent bookings</h1>
-<hr>
+<h1 style="margin-bottom: 1vw;">Details of all your recent bookings</h1>
+<br>
+  
   <% @user_bookings.each do |booking| %>
+
+  <div class="container-for-booking-show" style="display: flex;" >
+  
+  <div style="margin-top: 0vw;"><%= image_tag booking.yacht.yacht_image, class: "yacht_photos-show" %></div>
+ 
+ <div class="container-for-booking-show-info" style="margin-left: 2vw; margin-top: 1vw;">
   <h2><%= booking.yacht.name %></h2>
   <p><strong>Maximum Guests:</strong> <%= booking.yacht.max_guest %></p>
   <p><strong>Number of Cabins:</strong> <%= booking.yacht.cabin %></p>
@@ -9,8 +16,16 @@
   <p><strong>Onboard Driver:</strong> <%= Faker::Name.name_with_middle %> who has <%= Faker::Number.between(from: 10, to: 30) %>+ years experience!</p>
   <p><strong>Start Date</strong> <%= booking.start_date %></p>
   <p><strong>End Date</strong> <%= booking.end_date %></p>
-  <%= image_tag booking.yacht.yacht_image, class: "yacht_photos-show" %>
   <p><strong>The total cost for this booking amounted to £<%= booking.total_price %></strong> calculated for the duration of <%= (booking.end_date - booking.start_date).to_i %> days at a rate of £<%=booking.yacht.price_per_day %>  per day</p>
+
+  </div>
+    </div>
+    <br>
+    <hr>
+    <br>
   <% end %>
 
-</ul>
+  <%=console  %>
+
+
+
