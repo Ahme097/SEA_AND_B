@@ -34,6 +34,7 @@ end
 
   def new
     @yacht = current_user.yachts.new
+    @reviews = @yacht.reviews
   end
 
   def create
