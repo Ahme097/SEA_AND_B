@@ -82,4 +82,16 @@ a {
 
 }
 
+.yacht-show-ratings {
+    margin: 1vw;
+    border-radius: 1vw;
+    width: 41vw;
+    /* background-color: rgb(246 248 250 / 60%); */
+    overflow: auto;
+    white-space: inherit;
+    height: 221px;
+    border-style: solid;
+    border-color: #c9c5c5;
+}
+
 

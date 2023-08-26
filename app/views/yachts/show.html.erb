@@ -26,6 +26,17 @@
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+        
+        <div class="yacht-show-ratings">
+        <% @yacht.reviews.each do |review| %>
+          <div class="yacht-review-card-show">
+            <p><strong>Rating:</strong> <%= review.rating %></p>
+            <p><strong>Comment:</strong> <%= review.comment %></p>
+            <p><strong>By <%= Faker::Name.first_name %></strong></p>
+            <hr>
+          </div>
+        <% end %>
+        </div>
         <button class="button-yacht-show-booking" style= "">
           <% if @yacht.user_id == current_user.id %>
             <%= link_to 'Edit this Yacht', edit_yacht_path(@yacht) %>
@@ -39,16 +50,7 @@
         </button>
           <% end %>
         </button>
-        <% @yacht.reviews.each do |review| %>
-          <div class="yacht-review-card-show">
-            <p><strong>Rating:</strong> <%= review.rating %></p>
-            <p><strong>Comment:</strong> <%= review.comment %></p>
-            <p><strong>By <%= Faker::Name.first_name %></strong></p>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<%=console%>
