@@ -1,7 +1,16 @@
-<hr>
-<ul class= "yacht-card-rows">
+<% if @yachts.empty? %>
+  <div class="no-yachts-message">
+  <h2>You currently have 0 Yachts listed</h2>
+    <h1>Start Your Yacht Rental Journey!</h1>
+    <p>Ready to embark on a luxurious adventure? If you have a yacht to share, why not list it with us? Let your yacht be the center of unforgettable experiences for others!</p>
+    <a href="<%= new_yacht_path %>" class="btn btn-primary">List Your Yacht</a>
+    <hr>
+  </div>
 
-  <% @yachts.each do |yacht| %>
+</div>
+<% else %>
+  <ul class="yacht-card-rows">
+ <% @yachts.each do |yacht| %>
     <div class= "yacht_cards-in-index-page">
       <div class="left-section">
     <% if yacht.yacht_image.present? %>
@@ -27,5 +36,89 @@
       </div>
     </div>
   <% end %>
+  </ul>
+<% end %>
 
-</ul>
+
+<style>
+body{
+background-color: #d8e1e9;
+}
+
+/* Style for the "no yachts" message */
+.no-yachts-message {
+  text-align: center;
+  margin: 150px auto;
+  padding: 20px;
+  background-color: #b3c5d7;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.no-yachts-message h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.no-yachts-message p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.no-yachts-message .btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* Style for yacht cards */
+.yacht_cards-in-index-page {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.yacht_cards-in-index-page .left-section {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.yacht_cards-in-index-page .right-section {
+  flex: 2;
+}
+
+.yacht_photos {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.yacht_cards-in-index-page h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.yacht_cards-in-index-page p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.button-card-index {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.button-card-index:hover {
+  background-color: #0056b3;
+}
+
+</style>

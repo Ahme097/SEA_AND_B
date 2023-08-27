@@ -26,7 +26,7 @@
           data-map-markers-value="<%= @markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-        
+
         <div class="yacht-show-ratings">
         <% @yacht.reviews.each do |review| %>
           <div class="yacht-review-card-show">
@@ -54,3 +54,9 @@
     </div>
   </div>
 </div>
+
+<style>
+body{
+background-color: #d8e1e9;
+}
+</style>

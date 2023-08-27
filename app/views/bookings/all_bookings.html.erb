@@ -1,13 +1,132 @@
+<% if Booking.where(user_id: current_user.id).count == 0 %>
+<div class="card-container-section-tips-title">
+  <h1>Welcome to Your Ultimate Yacht Experience!</h1>
+  <p>
+    Get ready for an unforgettable adventure in luxury yacht rentals. Here are some tips to ensure you have an extraordinary experience while cruising with us.
+  </p>
+</div>
 
+<div class="card-container-section-card-tips">
+  <section class="section-card-tips-yacht">
+    <h2>1. Stargazing under the Night Sky</h2>
+    <p>Discover the magic of the night sky while at sea:</p>
+    <ul>
+      <li>Experience breathtaking stargazing away from city lights.</li>
+      <li>Set up cozy seating on deck for an enchanting celestial show.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>2. Personalize Celebrations</h2>
+    <p>Turn special occasions into unforgettable yacht celebrations:</p>
+    <ul>
+      <li>Host birthdays, anniversaries, and other milestones onboard.</li>
+      <li>Coordinate with our team for tailored decorations and surprises.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>3. Define Your Dream Itinerary</h2>
+    <p>Plan ahead and discuss your desired route and destinations with us:</p>
+    <ul>
+      <li>Choose picturesque spots for swimming, sunbathing, and exploring.</li>
+      <li>Discuss any special requests or activities you'd like to enjoy onboard.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>4. Choose the Right Yacht</h2>
+    <p>Select a yacht that perfectly suits your preferences and group size:</p>
+    <ul>
+      <li>Consider the yacht's size, amenities, and style.</li>
+      <li>Ensure the yacht meets your comfort and luxury expectations.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>5. Embrace Culinary Delights</h2>
+    <p>Elevate your experience with gourmet dining options:</p>
+    <ul>
+      <li>Discuss your culinary preferences with our chef in advance.</li>
+      <li>Enjoy personalized menus and delectable dishes onboard.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>6. Experience Water Adventures</h2>
+    <p>Make the most of your journey with exciting water activities:</p>
+    <ul>
+      <li>Engage in snorkeling, kayaking, and paddleboarding.</li>
+      <li>Explore vibrant marine life and stunning underwater landscapes.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>7. Capture Memorable Moments</h2>
+    <p>Preserve your luxury yacht memories with amazing photos:</p>
+    <ul>
+      <li>Bring your camera or hire a professional photographer.</li>
+      <li>Capture the beauty of the surroundings and your joyful moments.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>8. Immerse in Local Culture</h2>
+    <p>Explore the destinations and connect with local culture:</p>
+    <ul>
+      <li>Engage in guided tours to discover hidden gems and landmarks.</li>
+      <li>Interact with locals to gain insights into the region's heritage.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>9. Indulge in Relaxation</h2>
+    <p>Unwind and rejuvenate amidst luxury and tranquility:</p>
+    <ul>
+      <li>Enjoy spa treatments, yoga sessions, and relaxation on deck.</li>
+      <li>Take advantage of the serene environment to unwind fully.</li>
+    </ul>
+  </section>
+
+  <section class="section-card-tips-yacht">
+    <h2>10. Provide Feedback and Share Your Experience</h2>
+    <p>Your feedback matters and helps us enhance your experience:</p>
+    <ul>
+      <li>Share your thoughts about the yacht, crew, and overall journey.</li>
+      <li>Highlight exceptional service and any areas for improvement.</li>
+      <li>Your input helps us continue to provide exceptional experiences.</li>
+    </ul>
+  </section>
+</div>
+
+<div class="card-container-section-tips-title">
+  <h2>Contact Our Yacht Specialists</h2>
+</div>
+
+<div>
+  <section>
+    <div class="contact-team-info">
+      <img src="<%= asset_path('office-employee3.jpg') %>" alt="Contact Us" class="img-responsive img-yacht-employee">
+      <div class="contact-team-text">
+        <h3><%= Faker::Name.female_first_name %> <%= Faker::Name.last_name %></h3>
+        <p>Your Personal Yacht Specialist</p>
+        <p>Email: <%= Faker::Internet.email %></p>
+        <p>Phone: <%= Faker::PhoneNumber.cell_phone %></p>
+        <p>We're here to curate the perfect yacht experience for you!</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<% else %>
 <h1 style="margin-bottom: 1vw;">Details of all your recent bookings</h1>
-<br>
-  
+
   <% @user_bookings.each do |booking| %>
 
   <div class="container-for-booking-show" style="display: flex;" >
-  
+
   <div style="margin-top: 0vw;"><%= image_tag booking.yacht.yacht_image, class: "yacht_photos-show" %></div>
- 
+
  <div class="container-for-booking-show-info" style="margin-left: 2vw; margin-top: 1vw;">
   <h2><%= booking.yacht.name %></h2>
   <p><strong>Maximum Guests:</strong> <%= booking.yacht.max_guest %></p>
@@ -24,6 +143,10 @@
     <hr>
     <br>
   <% end %>
-
-
-
+<% end %>
+<br>
+<style>
+body{
+background-color: #d8e1e9;
+}
+</style>

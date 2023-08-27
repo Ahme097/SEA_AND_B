@@ -1,14 +1,25 @@
 <div class="header">
 
 <!--Content before waves-->
-<%= link_to yachts_path, class: "inner-header-link" do %>
-  <div class="inner-header flex">
-    <h1 class="animation-title">
-    Welcome to SEA & B<hr>
-    <span class="word word-styling-tips"></span>
-    </h1>
-  </div>
-<% end %>
+<div class="inner-header flex">
+  <h1 class="animation-title">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 my-3 mx-auto">
+        <%= form_with url: yachts_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                style: "width: 800px;",
+                placeholder: "Search Yacht Destinations by Location"
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </h1>
+</div>
+
+
 <!--Waves Container-->
 <div>
 
@@ -28,58 +39,3 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 <!--Waves end-->
 
 </div>
-
-<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
-
-<%= javascript_tag do %>
-  var words = [
-  "Sail away from the ordinary and into the extraordinary beauty of the sea. - Unknown",
-  "Life is short, and the world is wide. Cast off your worries and set sail. - Unknown",
-  "The ocean stirs the heart, inspires the imagination, and brings eternal joy to the soul. - Wyland",
-  "Adventure awaits on the horizon. Raise your sails and embrace the unknown. - Unknown",
-  "Every sunset is an opportunity to reset. Let the tranquil waves soothe your spirit. - Unknown",
-  "The sea, once it casts its spell, holds one in its net of wonder forever. - Jacques Cousteau",
-  "A journey by yacht is a journey to the soul's most secret places. - Unknown",
-  "Escape the ordinary, let the sea breeze carry you to places beyond your dreams. - Unknown",
-  "Travel not to escape life, but for life not to escape you. Let your yacht be your vessel of memories. - Unknown"
-];
-
-  var part, i = 0, offset = 0, len = words.length, forwards = true,
-      skip_count = 0, skip_delay = 15, speed = 100;
-
-  var wordflick = function () {
-    setInterval(function () {
-      if (forwards) {
-        if (offset >= words[i].length) {
-          ++skip_count;
-          if (skip_count == skip_delay) {
-            forwards = false;
-            skip_count = 0;
-          }
-        }
-      } else {
-        if (offset == 0) {
-          forwards = true;
-          i++;
-          offset = 0;
-          if (i >= len) {
-            i = 0;
-          }
-        }
-      }
-      part = words[i].substr(0, offset);
-      if (skip_count == 0) {
-        if (forwards) {
-          offset++;
-        } else {
-          offset--;
-        }
-      }
-      $(".word").text(part);
-    }, speed);
-  };
-
-  $(document).ready(function () {
-    wordflick();
-  });
-<% end %>

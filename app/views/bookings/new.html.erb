@@ -42,7 +42,11 @@
 </div>
 </div>
 
-
+<style>
+body{
+background-color: #d8e1e9;
+}
+</style>
 
 
 <script>
@@ -67,7 +71,7 @@ document.getElementById("booking_start_date").addEventListener("change", functio
   // Calculate the difference in days when the start date changes.
   var data = daysDifference(this.value, document.getElementById("booking_end_date").value);
   document.getElementById("days").innerHTML = `${data.days} Days`;
-  document.getElementById("price").innerHTML = `£${data.price}`;   
+  document.getElementById("price").innerHTML = `£${data.price}`;
 });
 
 document.getElementById("booking_end_date").addEventListener("change", function() {

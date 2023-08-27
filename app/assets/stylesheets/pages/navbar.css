@@ -1,3 +1,7 @@
+.bg-light-custom-color{
+  background-color: #d8e1e9;
+}
+
 /* Style for the right-side content */
 .right-side-navbar .nav-link {
   color: #0c0e20; /* Set the text color */

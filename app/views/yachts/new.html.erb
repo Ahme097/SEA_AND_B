@@ -12,9 +12,14 @@
           <%= f.input :yacht_image, as: :file %>
           <%= f.input :yacht_interior_image, as: :file %>
           <%= f.input :yacht_cabin_image, as: :file %>
+          <%= link_to 'Back to Yachts', yachts_path %>
           <%= f.button :submit, class: 'submit-button-2' %>
         </div>
       <% end %>
-      <%= link_to 'Back to Yachts', yachts_path %> 
     </body>
   </div>
+<style>
+body{
+background-color: #d8e1e9;
+}
+</style>

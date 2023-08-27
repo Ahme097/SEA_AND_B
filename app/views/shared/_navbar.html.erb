@@ -9,9 +9,6 @@
               <%= image_tag 'logo.jpg', alt: 'SEA & B Logo' %>
               </a>
 
-              <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-                <a class="nav-link" href="#">Home</a>
-            </li>
             <li class="nav-item <%= 'active' if current_page?(about_index_path) %>">
                <a class="nav-link" href="<%=about_index_path%>">About</a>
             </li>

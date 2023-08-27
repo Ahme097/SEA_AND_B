@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
-  @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300&display=swap');
 
   .animation-title{
     font-family: 'Red Hat Display', sans-serif;
@@ -8,7 +8,6 @@
   letter-spacing: 2px;
   background-color: transparent;
   padding: 5px;
-  border-radius: 10px
 }
 
 .animation-icon-main{
