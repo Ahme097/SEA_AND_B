@@ -28,6 +28,9 @@
         </div>
         
         <div class="yacht-show-ratings">
+        <% if @yacht.reviews.blank?  %>
+        <p style="margin: 1vw;"><strong> Be the first to leave a Review!</strong></p>
+        <% else %>
         <% @yacht.reviews.each do |review| %>
           <div class="yacht-review-card-show">
             <p><strong>Rating:</strong> <%= review.rating %></p>
@@ -35,6 +38,7 @@
             <p><strong>By <%= Faker::Name.first_name %></strong></p>
             <hr>
           </div>
+          <% end  %>
         <% end %>
         </div>
         <button class="button-yacht-show-booking" style= "">
